@@ -1,0 +1,85 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow border-0">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="text-center mb-2">Đăng nhập</h2>
+
+                    <p class="text-center text-muted mb-4">
+                        Chào mừng bạn quay lại NTU Learn
+                    </p>
+
+                    <form asp-controller="Auth"
+                          asp-action="Login"
+                          asp-route-returnUrl="@ViewData["ReturnUrl"]"
+                          method="post">
+
+                        @Html.AntiForgeryToken()
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email"
+                                   class="form-label"></label>
+                            <input asp-for="Email"
+                                   class="form-control"
+                                   placeholder="Nhập email của bạn" />
+                            <span asp-validation-for="Email"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password"
+                                   class="form-label"></label>
+                            <input asp-for="Password"
+                                   class="form-control"
+                                   placeholder="Nhập mật khẩu" />
+                            <span asp-validation-for="Password"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input asp-for="RememberMe"
+                                   class="form-check-input" />
+                            <label asp-for="RememberMe"
+                                   class="form-check-label"></label>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-primary w-100">
+                            Đăng nhập
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        Chưa có tài khoản?
+                        <a asp-controller="Auth"
+                           asp-action="Register">
+                            Đăng ký ngay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+}

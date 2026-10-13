@@ -1,0 +1,104 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson
+
+@{
+    ViewData["Title"] = "Sửa bài học";
+}
+
+<h1>Sửa bài học</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+
+        <form asp-action="Edit" method="post">
+
+            <input type="hidden" asp-for="LessonId" />
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger">
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Title"
+                       class="form-label">
+                    Tên bài học
+                </label>
+
+                <input asp-for="Title"
+                       class="form-control" />
+
+                <span asp-validation-for="Title"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Content"
+                       class="form-label">
+                    Nội dung bài học
+                </label>
+
+                <textarea asp-for="Content"
+                          class="form-control"
+                          rows="6">
+                </textarea>
+
+                <span asp-validation-for="Content"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="VideoUrl"
+                       class="form-label">
+                    Link video
+                </label>
+
+                <input asp-for="VideoUrl"
+                       class="form-control"
+                       placeholder="https://..." />
+
+                <span asp-validation-for="VideoUrl"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="OrderIndex"
+                       class="form-label">
+                    Thứ tự bài học
+                </label>
+
+                <input asp-for="OrderIndex"
+                       class="form-control"
+                       type="number"
+                       min="1" />
+
+                <span asp-validation-for="OrderIndex"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary">
+                Lưu thay đổi
+            </button>
+
+            <a asp-action="Index"
+               asp-route-courseId="@Model.CourseId"
+               class="btn btn-secondary">
+                Quay lại
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+}

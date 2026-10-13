@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson>
+
+@{
+    ViewData["Title"] = "Danh sách bài học";
+    var course = ViewBag.Course as Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course;
+}
+
+<h1>Bài học</h1>
+
+@if (course != null)
+{
+    <h3>Khóa học: @course.Title</h3>
+}
+
+@if (User.IsInRole("Admin") || User.IsInRole("GiangVien"))
+{
+    <p>
+        <a asp-action="Create"
+           asp-route-courseId="@course.CourseId"
+           class="btn btn-primary">
+            + Thêm bài học
+        </a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên bài học</th>
+            <th>Video</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OrderIndex</td>
+
+                <td>
+                    @item.Title
+                </td>
+
+                <td>
+                    @if (!string.IsNullOrEmpty(item.VideoUrl))
+                    {
+                        <a href="@item.VideoUrl" target="_blank">
+                            Xem video
+                        </a>
+                    }
+                    else
+                    {
+                        <span>Không có</span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-action="Details"
+                       asp-route-id="@item.LessonId"
+                       class="btn btn-info">
+                        Xem
+                    </a>
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("GiangVien"))
+                    {
+                        <a asp-action="Edit"
+                           asp-route-id="@item.LessonId"
+                           class="btn btn-warning">
+                            Sửa
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@item.LessonId"
+                           class="btn btn-danger">
+                            Xóa
+                        </a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

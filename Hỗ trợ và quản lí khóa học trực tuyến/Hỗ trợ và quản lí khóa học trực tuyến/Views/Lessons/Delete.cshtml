@@ -1,0 +1,57 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson
+
+@{
+    ViewData["Title"] = "Xóa bài học";
+}
+
+<h1>Xóa bài học</h1>
+
+<h3>Bạn có chắc chắn muốn xóa bài học này?</h3>
+
+<hr />
+
+<div class="card">
+    <div class="card-body">
+
+        <h4>@Model.Title</h4>
+
+        <p>
+            <strong>Khóa học:</strong>
+            @Model.Course?.Title
+        </p>
+
+        <p>
+            <strong>Thứ tự:</strong>
+            @Model.OrderIndex
+        </p>
+
+        <p>
+            <strong>Nội dung:</strong>
+        </p>
+
+        <div class="border rounded p-3">
+            @Model.Content
+        </div>
+
+        <br />
+
+        <form asp-action="Delete" method="post">
+
+            <input type="hidden"
+                   asp-for="LessonId" />
+
+            <button type="submit"
+                    class="btn btn-danger">
+                Xóa bài học
+            </button>
+
+            <a asp-action="Index"
+               asp-route-courseId="@Model.CourseId"
+               class="btn btn-secondary">
+                Quay lại
+            </a>
+
+        </form>
+
+    </div>
+</div>

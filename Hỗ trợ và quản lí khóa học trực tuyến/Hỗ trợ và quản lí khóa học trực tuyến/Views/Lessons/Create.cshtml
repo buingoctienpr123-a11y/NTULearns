@@ -1,0 +1,116 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson
+
+@{
+    ViewData["Title"] = "Thêm bài học";
+
+    var course = ViewBag.Course
+        as Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course;
+}
+
+<h1>Thêm bài học</h1>
+
+@if (course != null)
+{
+    <h4>Khóa học: @course.Title</h4>
+}
+
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+
+        <form asp-action="Create" method="post">
+
+            <input type="hidden"
+                   name="courseId"
+                   value="@course.CourseId" />
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger">
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Title"
+                       class="form-label">
+                    Tên bài học
+                </label>
+
+                <input asp-for="Title"
+                       class="form-control"
+                       placeholder="Ví dụ: Giới thiệu C#" />
+
+                <span asp-validation-for="Title"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Content"
+                       class="form-label">
+                    Nội dung bài học
+                </label>
+
+                <textarea asp-for="Content"
+                          class="form-control"
+                          rows="6"
+                          placeholder="Nhập nội dung bài học...">
+                </textarea>
+
+                <span asp-validation-for="Content"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="VideoUrl"
+                       class="form-label">
+                    Link video
+                </label>
+
+                <input asp-for="VideoUrl"
+                       class="form-control"
+                       placeholder="https://..." />
+
+                <span asp-validation-for="VideoUrl"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="OrderIndex"
+                       class="form-label">
+                    Thứ tự bài học
+                </label>
+
+                <input asp-for="OrderIndex"
+                       class="form-control"
+                       type="number"
+                       min="1" />
+
+                <span asp-validation-for="OrderIndex"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary">
+                Thêm bài học
+            </button>
+
+            <a asp-action="Index"
+               asp-route-courseId="@course.CourseId"
+               class="btn btn-secondary">
+                Quay lại
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,81 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson
+
+@{
+    ViewData["Title"] = "Chi tiết bài học";
+}
+
+<h1>Chi tiết bài học</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h3 class="card-title">
+                    @Model.Title
+                </h3>
+
+                <hr />
+
+                <p>
+                    <strong>Khóa học:</strong>
+                    @Model.Course?.Title
+                </p>
+
+                <p>
+                    <strong>Thứ tự bài học:</strong>
+                    @Model.OrderIndex
+                </p>
+
+                <p>
+                    <strong>Nội dung:</strong>
+                </p>
+
+                <div class="border rounded p-3 mb-3">
+                    @Model.Content
+                </div>
+
+                <p>
+                    <strong>Video:</strong>
+                </p>
+
+                @if (!string.IsNullOrEmpty(Model.VideoUrl))
+                {
+                    <a href="@Model.VideoUrl"
+                       target="_blank"
+                       class="btn btn-primary">
+                        Xem video
+                    </a>
+                }
+                else
+                {
+                    <span class="text-muted">
+                        Bài học chưa có video.
+                    </span>
+                }
+
+                <hr />
+
+                <p>
+                    <strong>Ngày tạo:</strong>
+                    @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+                </p>
+
+            </div>
+
+        </div>
+
+        <br />
+
+        <a asp-action="Index"
+           asp-route-courseId="@Model.CourseId"
+           class="btn btn-secondary">
+            ← Quay lại danh sách bài học
+        </a>
+
+    </div>
+</div>

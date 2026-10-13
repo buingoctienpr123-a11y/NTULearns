@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Migrations\\20261012071728_AddEnrollments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Migrations\\20261012071728_AddEnrollments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\data\\ntulearncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\data\\ntulearncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20261012071728_AddEnrollments.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Migrations\\20261012071728_AddEnrollments.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Migrations\\20261012071728_AddEnrollments.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Migrations\\20261012071728_AddEnrollments.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Migrations\\20261012071728_AddEnrollments.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T07:17:30.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Course.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Course.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Course.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Course.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Course.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAUwCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T07:11:41.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\User.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\User.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\User.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\User.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwCEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T07:10:05.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Enrollment.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Enrollment.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Enrollment.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Enrollment.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Enrollment.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA5wBwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T07:09:05.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NTULearnContext.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Data\\NTULearnContext.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Data\\NTULearnContext.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Data\\NTULearnContext.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Data\\NTULearnContext.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAQwFMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-28T07:14:59.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Program.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Program.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Program.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-28T07:16:36.208Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
