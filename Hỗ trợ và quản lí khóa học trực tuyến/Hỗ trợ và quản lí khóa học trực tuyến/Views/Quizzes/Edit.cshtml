@@ -1,0 +1,77 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz
+
+@{
+    ViewData["Title"] = "Chỉnh sửa bài kiểm tra";
+}
+
+<h2>Chỉnh sửa bài kiểm tra</h2>
+
+<form asp-action="Edit"
+      asp-route-id="@Model.QuizId"
+      method="post">
+
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="QuizId" />
+
+    <div asp-validation-summary="All"
+         class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">
+            Tên bài kiểm tra
+        </label>
+
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label">
+            Mô tả
+        </label>
+
+        <textarea asp-for="Description"
+                  class="form-control"
+                  rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DurationMinutes" class="form-label">
+            Thời gian làm bài (phút)
+        </label>
+
+        <input asp-for="DurationMinutes"
+               type="number"
+               min="1"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PassingScore" class="form-label">
+            Điểm đạt (0 - 10)
+        </label>
+
+        <input asp-for="PassingScore"
+               type="number"
+               min="0"
+               max="10"
+               step="0.5"
+               class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Lưu thay đổi
+    </button>
+
+    <a asp-action="Index"
+       asp-route-courseId="@Model.CourseId"
+       class="btn btn-secondary">
+        Quay lại
+    </a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

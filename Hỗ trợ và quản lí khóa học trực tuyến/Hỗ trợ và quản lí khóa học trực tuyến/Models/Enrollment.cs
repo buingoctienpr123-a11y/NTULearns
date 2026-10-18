@@ -25,5 +25,11 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models
         public User? User { get; set; }
 
         public Course? Course { get; set; }
+
+        public ICollection<LessonProgress> LessonProgresses { get; set; }
+            = new List<LessonProgress>();
+
+        public ICollection<QuizAttempt> QuizAttempts { get; set; }
+            = new List<QuizAttempt>();
     }
 }

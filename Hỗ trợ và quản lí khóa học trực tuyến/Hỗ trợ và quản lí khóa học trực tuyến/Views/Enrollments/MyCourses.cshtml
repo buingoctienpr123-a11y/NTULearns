@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Enrollment>
+
+@{
+    ViewData["Title"] = "Khóa học của tôi";
+
+    var progressPercent = ViewBag.ProgressPercent
+        as Dictionary<int, double>
+        ?? new Dictionary<int, double>();
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Khóa học của tôi</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Bạn chưa đăng ký khóa học nào.
+        </div>
+
+        <a asp-controller="Courses"
+           asp-action="Index"
+           class="btn btn-primary">
+            Khám phá khóa học
+        </a>
+    }
+    else
+    {
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                double percent = progressPercent
+                .GetValueOrDefault(item.EnrollmentId, 0);
+
+                string percentText = percent.ToString(
+                "0.##",
+                System.Globalization.CultureInfo.InvariantCulture);
+
+                <div class="col-md-6 mb-4">
+
+                    <div class="card shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                @item.Course?.Title
+                            </h5>
+
+                            <p class="text-muted">
+                                Ngày đăng ký:
+                                @item.EnrolledAt.ToString("dd/MM/yyyy")
+                            </p>
+
+                            <p>
+                                <strong>Tiến độ:</strong>
+                                @percentText%
+                            </p>
+
+                            <div class="progress mb-3"
+                                 style="height: 22px;">
+
+                                <div class="progress-bar bg-success"
+                                     role="progressbar"
+                                     style="width: @(percentText)%;"
+                                     aria-valuenow="@percentText"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100">
+                                    @percentText%
+                                </div>
+
+                            </div>
+
+                            @if (percent >= 100)
+                            {
+                                <span class="badge bg-success mb-3">
+                                    Đã hoàn thành khóa học
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark mb-3">
+                                    Đang học
+                                </span>
+                            }
+
+                            <div>
+                                <a asp-controller="Learning"
+                                   asp-action="Index"
+                                   asp-route-courseId="@item.CourseId"
+                                   class="btn btn-primary">
+                                    Tiếp tục học
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    }
+
+</div>

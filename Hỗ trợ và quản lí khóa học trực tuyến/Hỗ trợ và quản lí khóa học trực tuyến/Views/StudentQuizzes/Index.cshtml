@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz>
+
+@{
+    ViewData["Title"] = "Bài kiểm tra";
+
+    var course = ViewBag.Course
+        as Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course;
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<div class="container mt-4">
+
+    <h2>Bài kiểm tra của khóa học</h2>
+
+    <h5 class="text-muted mb-4">
+        @course?.Title
+    </h5>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Khóa học hiện chưa có bài kiểm tra được công bố.
+        </div>
+    }
+
+    <div class="row">
+        @foreach (var quiz in Model)
+        {
+            <div class="col-md-6 mb-3">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            @quiz.Title
+                        </h5>
+
+                        <p>@quiz.Description</p>
+
+                        <p>
+                            Thời gian quy định:
+                            <strong>
+                                @quiz.DurationMinutes phút
+                            </strong>
+                        </p>
+
+                        <p>
+                            Điểm đạt:
+                            <strong>
+                                @quiz.PassingScore / 10
+                            </strong>
+                        </p>
+
+                        <a asp-action="Take"
+                           asp-route-id="@quiz.QuizId"
+                           class="btn btn-primary">
+                            Làm bài kiểm tra
+                        </a>
+
+                        <a asp-action="History"
+                           asp-route-quizId="@quiz.QuizId"
+                           class="btn btn-outline-secondary">
+                            Lịch sử làm bài
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <a asp-controller="Learning"
+       asp-action="Index"
+       asp-route-courseId="@course?.CourseId"
+       class="btn btn-secondary mt-3">
+        Quay lại khóa học
+    </a>
+
+</div>

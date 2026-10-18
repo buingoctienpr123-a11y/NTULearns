@@ -1,0 +1,109 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.QuestionFormViewModel
+
+@{
+    ViewData["Title"] = "Thêm câu hỏi";
+}
+
+<div class="container mt-4">
+
+    <h2>Thêm câu hỏi trắc nghiệm</h2>
+
+    <form asp-action="Create" method="post">
+
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" asp-for="QuizId" />
+
+        <div asp-validation-summary="All"
+             class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Content" class="form-label">
+                Nội dung câu hỏi
+            </label>
+
+            <textarea asp-for="Content"
+                      class="form-control"
+                      rows="3"></textarea>
+
+            <span asp-validation-for="Content"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="OrderIndex" class="form-label">
+                Thứ tự câu hỏi
+            </label>
+
+            <input asp-for="OrderIndex"
+                   type="number"
+                   min="1"
+                   class="form-control" />
+        </div>
+
+        <h5 class="mt-4">Các phương án trả lời</h5>
+
+        <div class="mb-3">
+            <label class="form-label">Đáp án A</label>
+            <input asp-for="AnswerA" class="form-control" />
+            <span asp-validation-for="AnswerA"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Đáp án B</label>
+            <input asp-for="AnswerB" class="form-control" />
+            <span asp-validation-for="AnswerB"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Đáp án C</label>
+            <input asp-for="AnswerC" class="form-control" />
+            <span asp-validation-for="AnswerC"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Đáp án D</label>
+            <input asp-for="AnswerD" class="form-control" />
+            <span asp-validation-for="AnswerD"
+                  class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CorrectAnswer"
+                   class="form-label">
+                Chọn đáp án đúng
+            </label>
+
+            <select asp-for="CorrectAnswer"
+                    class="form-select">
+                <option value="">-- Chọn đáp án đúng --</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+
+            <span asp-validation-for="CorrectAnswer"
+                  class="text-danger"></span>
+        </div>
+
+        <button type="submit"
+                class="btn btn-success">
+            Lưu câu hỏi
+        </button>
+
+        <a asp-action="Index"
+           asp-route-quizId="@Model.QuizId"
+           class="btn btn-secondary">
+            Quay lại
+        </a>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

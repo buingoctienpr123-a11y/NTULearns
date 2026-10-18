@@ -29,8 +29,8 @@ public class CoursesController : Controller
             return NotFound();
 
         var course = await _context.Courses
-            .Include(c => c.Category)
             .Include(c => c.Instructor)
+            .Include(c => c.Category)
             .FirstOrDefaultAsync(c => c.CourseId == id);
 
         if (course == null)

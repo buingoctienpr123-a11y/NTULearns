@@ -1,0 +1,110 @@
+﻿
+@model IEnumerable<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Question>
+
+@{
+    ViewData["Title"] = "Quản lý câu hỏi";
+
+    var quiz = ViewBag.Quiz
+        as Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz;
+}
+
+<h2>Quản lý câu hỏi</h2>
+
+<h5 class="text-muted">@quiz?.Title</h5>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-warning">
+        @TempData["Error"]
+    </div>
+}
+
+@if (quiz != null && !quiz.IsPublished)
+{
+    <a asp-action="Create"
+       asp-route-quizId="@quiz.QuizId"
+       class="btn btn-success mb-3">
+        + Thêm câu hỏi
+    </a>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Bài kiểm tra chưa có câu hỏi.
+    </div>
+}
+else
+{
+    @foreach (var question in Model)
+    {
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+
+                <h5>
+                    Câu @question.OrderIndex:
+                    @question.Content
+                </h5>
+
+                <ul class="list-group mb-3">
+                    @foreach (var option in question.AnswerOptions
+                        .OrderBy(o => o.AnswerOptionId))
+                    {
+                        <li class="list-group-item
+                            @(option.IsCorrect
+                                ? "list-group-item-success"
+                                : "")">
+
+                            @option.Content
+
+                            @if (option.IsCorrect)
+                            {
+                                <span class="badge bg-success">
+                                    Đáp án đúng
+                                </span>
+                            }
+                        </li>
+                    }
+                </ul>
+
+                @if (quiz != null && !quiz.IsPublished)
+                {
+                    <a asp-controller="Questions"
+                       asp-action="Edit"
+                       asp-route-id="@question.QuestionId"
+                       class="btn btn-warning btn-sm mb-2">
+                        Sửa câu hỏi
+                    </a>
+                    <form asp-action="Delete"
+                          asp-route-id="@question.QuestionId"
+                          method="post">
+
+                        @Html.AntiForgeryToken()
+
+                        <button type="submit"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Xóa câu hỏi này?');">
+                            Xóa câu hỏi
+                        </button>
+                    </form>
+                }
+
+            </div>
+        </div>
+    }
+}
+
+<a asp-controller="Quizzes"
+   asp-action="Index"
+   asp-route-courseId="@quiz?.CourseId"
+   class="btn btn-secondary">
+    Quay lại danh sách Quiz
+</a>
+

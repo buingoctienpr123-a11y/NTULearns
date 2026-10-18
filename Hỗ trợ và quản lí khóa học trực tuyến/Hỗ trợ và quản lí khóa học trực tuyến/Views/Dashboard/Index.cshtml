@@ -1,0 +1,373 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+
+<div class="container mt-4">
+
+    <h2 class="mb-2">Dashboard quản trị</h2>
+
+    <p class="text-muted">
+        Tổng quan hoạt động hệ thống NTU Learn
+    </p>
+
+    <div class="row g-3 mt-3">
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Tổng khóa học</h6>
+                    <h2>@Model.TotalCourses</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Học viên</h6>
+                    <h2>@Model.TotalStudents</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Lượt đăng ký</h6>
+                    <h2>@Model.TotalEnrollments</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Giảng viên</h6>
+                    <h2>@Model.TotalInstructors</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-3 mt-3">
+
+        <div class="col-md-3">
+            <div class="card border-primary">
+                <div class="card-body">
+                    <h6>Bài học</h6>
+                    <h3>@Model.TotalLessons</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-info">
+                <div class="card-body">
+                    <h6>Bài kiểm tra</h6>
+                    <h3>@Model.TotalQuizzes</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-success">
+                <div class="card-body">
+                    <h6>Lượt làm Quiz</h6>
+                    <h3>@Model.TotalQuizAttempts</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-warning">
+                <div class="card-body">
+                    <h6>Điểm Quiz trung bình</h6>
+                    <h3>
+                        @Model.AverageQuizScore.ToString("0.##")
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+
+            <h5>Đăng ký khóa học theo tháng</h5>
+
+            @if (!Model.MonthlyEnrollments.Any())
+            {
+                <p class="text-muted">
+                    Chưa có dữ liệu đăng ký trong năm nay.
+                </p>
+            }
+            else
+            {
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>Tháng</th>
+                            <th>Số lượt đăng ký</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.MonthlyEnrollments)
+                        {
+                            <tr>
+                                <td>Tháng @item.Month</td>
+                                <td>@item.Total</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
+        </div>
+    </div>
+
+
+    <div class="row g-4 mt-3">
+
+        <!-- Biểu đồ lượt đăng ký -->
+        <div class="col-lg-7">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        Lượt đăng ký theo tháng
+                    </h5>
+
+                    <div style="height: 320px;">
+                        <canvas id="enrollmentChart"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Biểu đồ kết quả Quiz -->
+        <div class="col-lg-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        Kết quả làm bài Quiz
+                    </h5>
+
+                    <div style="height: 320px;">
+                        <canvas id="quizChart"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+@section Scripts {
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+
+    <script>
+        // Dữ liệu đăng ký theo tháng từ SQL Server
+        const monthlyData = @Html.Raw(
+                    System.Text.Json.JsonSerializer.Serialize(
+                            Model.MonthlyEnrollments
+                    )
+            );
+
+    const months = Array.from(
+        { length: 12 },
+        (_, i) => "Tháng " + (i + 1)
+    );
+
+        const enrollmentCounts = Array(12).fill(0);
+
+        monthlyData.forEach(item => {
+            if (item.Month >= 1 && item.Month <= 12) {
+                enrollmentCounts[item.Month - 1] = item.Total;
+            }
+        });
+
+        // Biểu đồ cột
+        new Chart(
+            document.getElementById("enrollmentChart"),
+            {
+                type: "bar",
+
+                data: {
+                    labels: months,
+
+                    datasets: [{
+                        label: "Số lượt đăng ký",
+                        data: enrollmentCounts,
+                        backgroundColor: "#0d6efd",
+                        borderRadius: 5
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
+        // Biểu đồ tròn
+        new Chart(
+            document.getElementById("quizChart"),
+            {
+                type: "doughnut",
+
+                data: {
+                    labels: ["Đạt", "Chưa đạt"],
+
+                    datasets: [{
+                        data: [
+                            @Model.PassedQuizAttempts,
+                            @Model.FailedQuizAttempts
+                        ],
+
+                        backgroundColor: [
+                            "#198754",
+                            "#dc3545"
+                        ]
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            }
+        );
+    </script>
+
+
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+
+            <h5 class="mb-3">
+                Top 5 khóa học có nhiều lượt đăng ký
+            </h5>
+
+            <div class="table-responsive">
+                <table class="table table-striped align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên khóa học</th>
+                            <th>Số lượt đăng ký</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    @{
+                            int stt = 1;
+                        }
+
+                        @foreach (var course in Model.TopCourses)
+                        {
+                            <tr>
+                                <td>@(stt++)</td>
+
+                                <td>@course.CourseTitle</td>
+
+                                <td>
+                                    <span class="badge bg-primary">
+                                        @course.EnrollmentCount
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a asp-controller="Courses"
+                                       asp-action="Details"
+                                       asp-route-id="@course.CourseId"
+                                       class="btn btn-outline-primary btn-sm">
+                                        Xem khóa học
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="card shadow-sm mt-4 mb-4">
+        <div class="card-body">
+
+            <h5 class="mb-3">
+                Hoạt động đăng ký gần đây
+            </h5>
+
+            <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Học viên</th>
+                            <th>Khóa học</th>
+                            <th>Ngày đăng ký</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (!Model.RecentEnrollments.Any())
+                        {
+                            <tr>
+                                <td colspan="3" class="text-center">
+                                    Chưa có dữ liệu đăng ký.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var item in Model.RecentEnrollments)
+                            {
+                                <tr>
+                                    <td>@item.StudentName</td>
+
+                                    <td>@item.CourseTitle</td>
+
+                                    <td>
+                                        @item.EnrolledAt.ToString(
+                                        "dd/MM/yyyy HH:mm")
+                        </td>
+                    </tr>
+                                        }
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+

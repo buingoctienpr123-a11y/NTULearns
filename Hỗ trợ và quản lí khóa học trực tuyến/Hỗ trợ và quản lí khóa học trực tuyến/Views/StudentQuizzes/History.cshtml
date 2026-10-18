@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.QuizAttempt>
+
+@{
+    ViewData["Title"] = "Lịch sử làm bài";
+
+    var quiz = ViewBag.Quiz
+        as Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz;
+
+    int index = Model.Count();
+}
+
+<div class="container mt-4">
+
+    <h2>Lịch sử làm bài</h2>
+
+    <h5 class="text-muted mb-4">
+        @quiz?.Title
+    </h5>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Bạn chưa có lượt làm bài nào.
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Lần làm</th>
+                    <th>Ngày nộp</th>
+                    <th>Điểm</th>
+                    <th>Kết quả</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var attempt in Model)
+                {
+                    <tr>
+                        <td>@(index--)</td>
+
+                        <td>
+                            @attempt.SubmittedAt?.ToString(
+                            "dd/MM/yyyy HH:mm")
+                </td>
+
+                <td>
+                    <strong>@attempt.Score / 10</strong>
+                </td>
+
+                <td>
+                    @if (attempt.IsPassed)
+                            {
+                                <span class="badge bg-success">
+                                    Đạt
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark">
+                                    Chưa đạt
+                                </span>
+                            }
+                        </td>
+
+                        <td>
+                            <a asp-action="Review"
+                               asp-route-id="@attempt.QuizAttemptId"
+                               class="btn btn-info btn-sm">
+                                Xem chi tiết
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <a asp-action="Index"
+       asp-route-courseId="@quiz?.CourseId"
+       class="btn btn-secondary">
+        Quay lại danh sách Quiz
+    </a>
+
+</div>

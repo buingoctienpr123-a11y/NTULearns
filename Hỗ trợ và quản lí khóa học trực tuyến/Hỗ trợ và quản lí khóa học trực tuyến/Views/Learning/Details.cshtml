@@ -1,0 +1,69 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson
+
+@{
+    ViewData["Title"] = "Nội dung bài học";
+
+    bool isCompleted = ViewBag.IsCompleted is bool value
+        && value;
+}
+
+<h2>@Model.Title</h2>
+
+<p class="text-muted">
+    Khóa học: @Model.Course?.Title
+</p>
+
+<hr />
+
+<h5>Nội dung bài học</h5>
+
+<div class="card mb-4">
+    <div class="card-body">
+        @if (!string.IsNullOrWhiteSpace(Model.Content))
+        {
+            <p style="white-space: pre-wrap;">@Model.Content</p>
+        }
+        else
+        {
+            <p>Chưa có nội dung bài học.</p>
+        }
+    </div>
+</div>
+
+@if (!string.IsNullOrWhiteSpace(Model.VideoUrl))
+{
+    <p>
+        <a href="@Model.VideoUrl"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-outline-primary">
+            Xem video bài học
+        </a>
+    </p>
+}
+
+@if (isCompleted)
+{
+    <div class="alert alert-success">
+        Bạn đã hoàn thành bài học này.
+    </div>
+}
+else
+{
+    <form asp-action="Complete" method="post">
+        <input type="hidden"
+               name="lessonId"
+               value="@Model.LessonId" />
+
+        <button type="submit"
+                class="btn btn-success">
+            Đánh dấu hoàn thành
+        </button>
+    </form>
+}
+
+<a asp-action="Index"
+   asp-route-courseId="@Model.CourseId"
+   class="btn btn-secondary mt-3">
+    Quay lại danh sách bài học
+</a>

@@ -80,12 +80,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Enrollments/MyCourses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5yb2xsbWVudHNcTXlDb3Vyc2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Learning/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhcm5pbmdcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Learning/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVhcm5pbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Lessons/Create.cshtml]
@@ -108,12 +124,60 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVzc29uc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Questions/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Questions/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Questions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/QuizStatistics/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpelN0YXRpc3RpY3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Quizzes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Quizzes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Quizzes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpenplc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/StudentQuizzes/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFF1aXp6ZXNcSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/StudentQuizzes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFF1aXp6ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/StudentQuizzes/Result.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFF1aXp6ZXNcUmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/StudentQuizzes/Review.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFF1aXp6ZXNcUmV2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/StudentQuizzes/Take.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFF1aXp6ZXNcVGFrZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/QLDAPM/Hỗ trợ và quản lí khóa học trực tuyến/Hỗ trợ và quản lí khóa học trực tuyến/Views/_ViewImports.cshtml]

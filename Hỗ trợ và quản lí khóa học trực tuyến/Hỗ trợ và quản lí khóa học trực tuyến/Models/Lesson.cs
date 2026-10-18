@@ -22,5 +22,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models
         public Course? Course { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        public ICollection<LessonProgress> LessonProgresses { get; set; }
+            = new List<LessonProgress>();
     }
 }

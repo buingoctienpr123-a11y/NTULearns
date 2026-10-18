@@ -1,0 +1,71 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.QuizAttempt
+
+@{
+    ViewData["Title"] = "Kết quả bài kiểm tra";
+
+    int correctCount = Model.StudentAnswers
+        .Count(a => a.IsCorrect);
+}
+
+@if (TempData["Info"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Info"]
+    </div>
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-sm">
+        <div class="card-body text-center p-4">
+
+            <h2>Kết quả bài kiểm tra</h2>
+
+            <h5 class="text-muted">
+                @Model.Quiz?.Title
+            </h5>
+
+            <h1 class="display-3 text-primary my-4">
+                @Model.Score / 10
+            </h1>
+
+            @if (Model.IsPassed)
+            {
+                <div class="alert alert-success">
+                    Chúc mừng! Bạn đã đạt bài kiểm tra.
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    Bạn chưa đạt điểm yêu cầu.
+                    Hãy ôn tập và thử lại.
+                </div>
+            }
+
+            <p>
+                Số câu trả lời đúng:
+                <strong>@correctCount</strong>
+            </p>
+
+            <p>
+                Thời gian nộp:
+                @Model.SubmittedAt?.ToString("dd/MM/yyyy HH:mm")
+            </p>
+
+            <a asp-action="Review"
+               asp-route-id="@Model.QuizAttemptId"
+               class="btn btn-info">
+                Xem chi tiết đáp án
+            </a>
+
+            <a asp-action="Index"
+               asp-route-courseId="@Model.Quiz?.CourseId"
+               class="btn btn-primary">
+                Quay lại danh sách bài kiểm tra
+            </a>
+
+        </div>
+    </div>
+
+</div>

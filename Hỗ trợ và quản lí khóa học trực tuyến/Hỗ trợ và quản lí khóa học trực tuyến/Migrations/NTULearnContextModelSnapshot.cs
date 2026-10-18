@@ -22,6 +22,31 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.AnswerOption", b =>
+                {
+                    b.Property<int>("AnswerOptionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnswerOptionId"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AnswerOptionId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("AnswerOptions");
+                });
+
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -161,6 +186,134 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.ToTable("Lessons");
                 });
 
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.LessonProgress", b =>
+                {
+                    b.Property<int>("LessonProgressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LessonProgressId"));
+
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EnrollmentId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("LessonId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LessonProgressId");
+
+                    b.HasIndex("LessonId");
+
+                    b.HasIndex("EnrollmentId", "LessonId")
+                        .IsUnique();
+
+                    b.ToTable("LessonProgresses");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Question", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionId"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderIndex")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuizId")
+                        .HasColumnType("int");
+
+                    b.HasKey("QuestionId");
+
+                    b.HasIndex("QuizId");
+
+                    b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz", b =>
+                {
+                    b.Property<int>("QuizId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuizId"));
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DurationMinutes")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsPublished")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("PassingScore")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("QuizId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("Quizzes");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.QuizAttempt", b =>
+                {
+                    b.Property<int>("QuizAttemptId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuizAttemptId"));
+
+                    b.Property<int>("EnrollmentId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsPassed")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("QuizId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Score")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("StartedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("SubmittedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("QuizAttemptId");
+
+                    b.HasIndex("EnrollmentId");
+
+                    b.HasIndex("QuizId");
+
+                    b.ToTable("QuizAttempts");
+                });
+
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Role", b =>
                 {
                     b.Property<int>("RoleId")
@@ -194,6 +347,38 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                             RoleId = 3,
                             RoleName = "HocVien"
                         });
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.StudentAnswer", b =>
+                {
+                    b.Property<int>("StudentAnswerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentAnswerId"));
+
+                    b.Property<int>("AnswerOptionId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuizAttemptId")
+                        .HasColumnType("int");
+
+                    b.HasKey("StudentAnswerId");
+
+                    b.HasIndex("AnswerOptionId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("QuizAttemptId", "QuestionId")
+                        .IsUnique();
+
+                    b.ToTable("StudentAnswers");
                 });
 
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.User", b =>
@@ -235,6 +420,17 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.AnswerOption", b =>
+                {
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Question", "Question")
+                        .WithMany("AnswerOptions")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Question");
                 });
 
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course", b =>
@@ -286,6 +482,93 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.Navigation("Course");
                 });
 
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.LessonProgress", b =>
+                {
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Enrollment", "Enrollment")
+                        .WithMany("LessonProgresses")
+                        .HasForeignKey("EnrollmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson", "Lesson")
+                        .WithMany("LessonProgresses")
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Enrollment");
+
+                    b.Navigation("Lesson");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Question", b =>
+                {
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz", "Quiz")
+                        .WithMany("Questions")
+                        .HasForeignKey("QuizId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Quiz");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz", b =>
+                {
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course", "Course")
+                        .WithMany("Quizzes")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.QuizAttempt", b =>
+                {
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Enrollment", "Enrollment")
+                        .WithMany("QuizAttempts")
+                        .HasForeignKey("EnrollmentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz", "Quiz")
+                        .WithMany("QuizAttempts")
+                        .HasForeignKey("QuizId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Enrollment");
+
+                    b.Navigation("Quiz");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.StudentAnswer", b =>
+                {
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.AnswerOption", "AnswerOption")
+                        .WithMany("StudentAnswers")
+                        .HasForeignKey("AnswerOptionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Question", "Question")
+                        .WithMany("StudentAnswers")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.QuizAttempt", "QuizAttempt")
+                        .WithMany("StudentAnswers")
+                        .HasForeignKey("QuizAttemptId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("AnswerOption");
+
+                    b.Navigation("Question");
+
+                    b.Navigation("QuizAttempt");
+                });
+
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.User", b =>
                 {
                     b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Role", "Role")
@@ -295,6 +578,11 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.AnswerOption", b =>
+                {
+                    b.Navigation("StudentAnswers");
                 });
 
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Category", b =>
@@ -307,6 +595,39 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.Navigation("Enrollments");
 
                     b.Navigation("Lessons");
+
+                    b.Navigation("Quizzes");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Enrollment", b =>
+                {
+                    b.Navigation("LessonProgresses");
+
+                    b.Navigation("QuizAttempts");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson", b =>
+                {
+                    b.Navigation("LessonProgresses");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Question", b =>
+                {
+                    b.Navigation("AnswerOptions");
+
+                    b.Navigation("StudentAnswers");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz", b =>
+                {
+                    b.Navigation("Questions");
+
+                    b.Navigation("QuizAttempts");
+                });
+
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.QuizAttempt", b =>
+                {
+                    b.Navigation("StudentAnswers");
                 });
 
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Role", b =>

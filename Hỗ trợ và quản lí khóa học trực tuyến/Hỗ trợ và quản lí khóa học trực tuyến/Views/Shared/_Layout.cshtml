@@ -30,7 +30,10 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="ntuNavbar">
+
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <!-- Trang chủ -->
                         <li class="nav-item">
                             <a class="nav-link"
                                asp-controller="Home"
@@ -39,12 +42,41 @@
                             </a>
                         </li>
 
+                        <!-- Danh sách khóa học -->
                         <li class="nav-item">
-                            <a class="nav-link" href="/#courses">
+                            <a class="nav-link"
+                               asp-controller="Courses"
+                               asp-action="Index">
                                 Khóa học
                             </a>
                         </li>
+
+                        @if (User.IsInRole("Admin") ||
+                                                User.IsInRole("GiangVien"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Dashboard"
+                                   asp-action="Index">
+                                    Dashboard
+                                </a>
+                            </li>
+                        }
+
+                        <!-- Khóa học của tôi: chỉ học viên nhìn thấy -->
+                        @if (User.IsInRole("HocVien"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Enrollments"
+                                   asp-action="MyCourses">
+                                    Khóa học của tôi
+                                </a>
+                            </li>
+                        }
+
                     </ul>
+
 
 
                     <div class="d-flex align-items-center gap-2">

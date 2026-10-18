@@ -1,0 +1,225 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.QuizTakeViewModel
+
+@{
+    ViewData["Title"] = "Làm bài kiểm tra";
+    string[] letters = { "A", "B", "C", "D" };
+}
+
+<div class="container mt-4">
+
+    <h2>@Model.Title</h2>
+
+    <p class="text-muted">
+        Thời gian quy định:
+        @Model.DurationMinutes phút
+    </p>
+
+    <div class="alert alert-info">
+        Tổng số câu hỏi: @Model.Questions.Count
+    </div>
+
+    <form asp-action="Submit" method="post" id="quizForm">
+
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" asp-for="QuizId" />
+        <input type="hidden" asp-for="QuizAttemptId" />
+
+        <div class="alert alert-warning text-center">
+            <h5>Thời gian còn lại</h5>
+
+            <h2 id="countdown"
+                class="fw-bold text-danger">
+                --:--
+            </h2>
+        </div>
+
+        <div id="saveStatus"
+             class="alert alert-secondary py-2">
+            Chọn đáp án để tự động lưu.
+        </div>
+
+        @for (int i = 0; i < Model.Questions.Count; i++)
+        {
+            var question = Model.Questions[i];
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+
+                    <input type="hidden"
+                           name="Questions[@i].QuestionId"
+                           value="@question.QuestionId" />
+
+                    <h5>
+                        Câu @(i + 1):
+                        @question.Content
+                    </h5>
+
+                    @for (int j = 0; j < question.Options.Count; j++)
+                    {
+                        var option = question.Options[j];
+
+                        <div class="form-check mb-2">
+
+                            <input class="form-check-input answer-radio"
+                                   type="radio"
+                                   name="Questions[@i].SelectedOptionId"
+                                   id="option_@(i)_@(j)"
+                                   value="@option.AnswerOptionId"
+                                   data-question-id="@question.QuestionId"
+                                   data-attempt-id="@Model.QuizAttemptId"
+                                   checked="@(question.SelectedOptionId == option.AnswerOptionId)" />
+
+                            <label class="form-check-label"
+                                   for="option_@(i)_@(j)">
+                                @letters[j].
+                                @option.Content
+                            </label>
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+        }
+
+        <button type="submit"
+                class="btn btn-success btn-lg"
+                onclick="return confirm('Bạn có chắc muốn nộp bài?');">
+            Nộp bài
+        </button>
+
+    </form>
+
+</div>
+
+
+@section Scripts {
+    <script>
+        const deadline = new Date(
+            '@Model.DeadlineUtc.ToString("o")'
+        ).getTime();
+
+        const countdown = document.getElementById("countdown");
+        const quizForm = document.getElementById("quizForm");
+
+        let submitted = false;
+
+        function updateCountdown() {
+            if (submitted) return;
+
+            const now = Date.now();
+            const remaining = Math.max(
+                0,
+                Math.floor((deadline - now) / 1000)
+            );
+
+            const minutes = Math.floor(remaining / 60);
+            const seconds = remaining % 60;
+
+            countdown.textContent =
+                String(minutes).padStart(2, "0") + ":" +
+                String(seconds).padStart(2, "0");
+
+            if (remaining <= 0) {
+                submitted = true;
+                quizExpired = true;
+
+                clearInterval(timer);
+
+                // Không cho chọn đáp án mới
+                document.querySelectorAll(".answer-radio")
+                    .forEach(radio => radio.disabled = true);
+
+                saveStatus.className =
+                    "alert alert-warning py-2";
+
+                saveStatus.textContent =
+                    "Đã hết thời gian. Hệ thống đang chấm bài...";
+
+                // Nộp bài tự động
+                quizForm.submit();
+            }
+        }
+
+        let quizExpired = false;
+
+        const saveStatus = document.getElementById("saveStatus");
+
+        const autoSaveUrl =
+            '@Url.Action("AutoSave", "StudentQuizzes")';
+
+        const antiForgeryToken = document.querySelector(
+            'input[name="__RequestVerificationToken"]'
+        ).value;
+
+        document.querySelectorAll(".answer-radio")
+            .forEach(radio => {
+
+                radio.addEventListener("change", async function () {
+
+                    if (quizExpired || submitted)
+                        return;
+
+                    const questionId = Number(
+                        this.dataset.questionId
+                    );
+
+                    const quizAttemptId = Number(
+                        this.dataset.attemptId
+                    );
+
+                    const answerOptionId = Number(this.value);
+
+                    saveStatus.className =
+                        "alert alert-warning py-2";
+
+                    saveStatus.textContent =
+                        "Đang lưu đáp án...";
+
+                    try {
+                        const response = await fetch(autoSaveUrl, {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json",
+                                "RequestVerificationToken":
+                                    antiForgeryToken
+                            },
+
+                            body: JSON.stringify({
+                                quizAttemptId: quizAttemptId,
+                                questionId: questionId,
+                                answerOptionId: answerOptionId
+                            })
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(
+                                "Không thể lưu đáp án."
+                            );
+                        }
+
+                        saveStatus.className =
+                            "alert alert-success py-2";
+
+                        saveStatus.textContent =
+                            "Đã lưu đáp án thành công.";
+
+                    } catch (error) {
+                        saveStatus.className =
+                            "alert alert-danger py-2";
+
+                        saveStatus.textContent =
+                            "Lưu đáp án thất bại. Vui lòng thử lại.";
+                    }
+                });
+            });
+
+        const timer = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+
+}
+

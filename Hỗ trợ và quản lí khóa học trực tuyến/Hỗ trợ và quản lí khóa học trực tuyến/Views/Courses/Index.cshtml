@@ -1,89 +1,78 @@
 @model IEnumerable<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh sách khóa học";
 }
 
-<h1>Index</h1>
+<div class="container mt-4">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ThumbnailUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InstructorId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Instructor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(model => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.ThumbnailUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.CategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.InstructorId)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Instructor)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CourseId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CourseId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CourseId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h2 class="mb-4">Danh sách khóa học</h2>
+
+    @if (User.IsInRole("Admin") ||
+        User.IsInRole("GiangVien"))
+    {
+        <a asp-action="Create"
+           class="btn btn-success mb-4">
+            + Thêm khóa học
+        </a>
+    }
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            @item.Title
+                        </h5>
+
+                        <p class="card-text">
+                            @item.Description
+                        </p>
+
+                        <p>
+                            <strong>Giá:</strong>
+
+                            @if (item.Price == 0)
+                            {
+                                <span class="text-success">
+                                    Miễn phí
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">
+                                    @item.Price.ToString("N0") VNĐ
+                                </span>
+                            }
+                        </p>
+
+                        <a asp-action="Details"
+                           asp-route-id="@item.CourseId"
+                           class="btn btn-primary">
+                            Xem chi tiết
+                        </a>
+
+
+                        @if (User.IsInRole("Admin") ||
+                                            User.IsInRole("GiangVien"))
+                        {
+                            <a asp-action="Edit"
+                               asp-route-id="@item.CourseId"
+                               class="btn btn-warning">
+                                Sửa
+                            </a>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

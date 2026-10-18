@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson>
+
+@{
+    ViewData["Title"] = "Học tập";
+
+    var course = ViewBag.Course
+        as Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course;
+
+    var completedIds = ViewBag.CompletedIds
+        as HashSet<int> ?? new HashSet<int>();
+
+    double percent = ViewBag.ProgressPercent is double value
+        ? value : 0;
+}
+
+<h2>Học tập: @course?.Title</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h5>Tiến độ khóa học</h5>
+
+        <div class="progress" style="height: 25px;">
+            <div class="progress-bar bg-success"
+                 role="progressbar"
+                 style="width: @(percent.ToString("0.##", System.Globalization.CultureInfo.InvariantCulture))%;"
+                 aria-valuenow="@percent"
+                 aria-valuemin="0"
+                 aria-valuemax="100">
+                @percent.ToString("0.##")%
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên bài học</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lesson in Model)
+        {
+            bool completed = completedIds.Contains(lesson.LessonId);
+
+            <tr>
+                <td>@lesson.OrderIndex</td>
+                <td>@lesson.Title</td>
+                <td>
+                    @if (completed)
+                    {
+                        <span class="badge bg-success">
+                            Hoàn thành
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">
+                            Chưa hoàn thành
+                        </span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Details"
+                       asp-route-id="@lesson.LessonId"
+                       class="btn btn-primary btn-sm">
+                        Vào học
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="StudentQuizzes"
+   asp-action="Index"
+   asp-route-courseId="@ViewBag.Course.CourseId"
+   class="btn btn-warning mt-2">
+    Làm bài kiểm tra
+</a>
+
+<a asp-controller="Enrollments"
+   asp-action="MyCourses"
+   class="btn btn-secondary mt-2">
+    Quay lại khóa học của tôi
+</a>

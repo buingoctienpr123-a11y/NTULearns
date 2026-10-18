@@ -1,0 +1,166 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.QuizStatisticsViewModel
+
+@{
+    ViewData["Title"] = "Thống kê Quiz";
+}
+
+<div class="container mt-4">
+
+    <h2>Thống kê kết quả Quiz</h2>
+
+    <h5 class="text-muted">
+        @Model.QuizTitle
+    </h5>
+
+    <p>
+        Khóa học:
+        <strong>@Model.CourseTitle</strong>
+    </p>
+
+    <div class="row g-3 mt-3">
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Tổng lượt làm</h6>
+                    <h2>@Model.TotalAttempts</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Học viên tham gia</h6>
+                    <h2>@Model.TotalStudents</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Điểm trung bình</h6>
+                    <h2>
+                        @Model.AverageScore.ToString("0.##")
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Tỷ lệ đạt</h6>
+                    <h2>
+                        @Model.PassRate.ToString("0.##")%
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-3 mt-3">
+
+        <div class="col-md-4">
+            <div class="alert alert-success">
+                Số lượt đạt:
+                <strong>@Model.PassedAttempts</strong>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="alert alert-warning">
+                Số lượt chưa đạt:
+                <strong>@Model.FailedAttempts</strong>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="alert alert-info">
+                Điểm cao nhất:
+                <strong>@Model.HighestScore</strong>
+            </div>
+        </div>
+
+    </div>
+
+    <hr />
+
+    <h4>Danh sách lượt làm bài</h4>
+
+    @if (!Model.Attempts.Any())
+    {
+        <div class="alert alert-info">
+            Chưa có học viên nào hoàn thành Quiz.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-striped">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>STT</th>
+                        <th>Học viên</th>
+                        <th>Ngày nộp</th>
+                        <th>Điểm</th>
+                        <th>Kết quả</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @{
+                        int stt = 1;
+                    }
+
+                    @foreach (var attempt in Model.Attempts)
+                    {
+                        <tr>
+                            <td>@(stt++)</td>
+
+                            <td>@attempt.StudentName</td>
+
+                            <td>
+                                @attempt.SubmittedAt?.ToString(
+                                "dd/MM/yyyy HH:mm")
+                    </td>
+
+                    <td>
+                        <strong>@attempt.Score</strong>
+                    </td>
+
+                    <td>
+                        @if (attempt.IsPassed)
+                                {
+                                    <span class="badge bg-success">
+                                        Đạt
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">
+                                        Chưa đạt
+                                    </span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+
+    <a asp-controller="Quizzes"
+       asp-action="Index"
+       asp-route-courseId="@Model.CourseId"
+       class="btn btn-secondary mt-3">
+        Quay lại quản lý Quiz
+    </a>
+
+</div>

@@ -1,0 +1,12 @@
+# SQL Server Database
+*.mdf
+*.ldf
+
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# User settings
+*.user
+*.suo

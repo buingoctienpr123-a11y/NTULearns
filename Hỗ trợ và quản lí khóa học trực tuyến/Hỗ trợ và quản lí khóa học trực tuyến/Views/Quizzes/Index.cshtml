@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Quiz>
+
+@{
+    ViewData["Title"] = "Quản lý bài kiểm tra";
+
+    var course = ViewBag.Course
+        as Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course;
+}
+
+<h2>Quản lý bài kiểm tra</h2>
+
+<h5 class="text-muted">
+    Khóa học: @course?.Title
+</h5>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-warning">
+        @TempData["Error"]
+    </div>
+}
+
+<a asp-action="Create"
+   asp-route-courseId="@course?.CourseId"
+   class="btn btn-success mb-3">
+    + Thêm bài kiểm tra
+</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Tên bài kiểm tra</th>
+            <th>Thời gian</th>
+            <th>Điểm đạt</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+
+                <td>@item.DurationMinutes phút</td>
+
+                <td>@item.PassingScore / 10</td>
+
+                <td>
+                    @if (item.IsPublished)
+                    {
+                        <span class="badge bg-success">
+                            Đã công bố
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">
+                            Bản nháp
+                        </span>
+                    }
+                </td>
+
+                <td>
+                    <a asp-controller="Questions"
+                       asp-action="Index"
+                       asp-route-quizId="@item.QuizId"
+                       class="btn btn-primary btn-sm">
+                        Quản lý câu hỏi
+                    </a>
+
+                    <a asp-controller="QuizStatistics"
+                       asp-action="Index"
+                       asp-route-quizId="@item.QuizId"
+                       class="btn btn-info btn-sm">
+                        Thống kê
+                    </a>
+
+                    @if (!item.IsPublished)
+                    {
+                        <form asp-controller="Quizzes"
+                              asp-action="Publish"
+                              asp-route-id="@item.QuizId"
+                              method="post"
+                              class="d-inline">
+
+                            @Html.AntiForgeryToken()
+
+                            <button type="submit"
+                                    class="btn btn-success btn-sm"
+                                    onclick="return confirm('Bạn muốn công bố bài kiểm tra này?');">
+                                Công bố
+                            </button>
+                        </form>
+                    }
+
+                    <a asp-action="Edit"
+                       asp-route-id="@item.QuizId"
+                       class="btn btn-warning btn-sm">
+                        Sửa
+                    </a>
+
+                    <form asp-action="Delete"
+                          asp-route-id="@item.QuizId"
+                          method="post"
+                          class="d-inline">
+
+                        @Html.AntiForgeryToken()
+
+                        <button type="submit"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Bạn có chắc muốn xóa Quiz này?');">
+                            Xóa
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Courses"
+   asp-action="Details"
+   asp-route-id="@course?.CourseId"
+   class="btn btn-secondary">
+    Quay lại khóa học
+</a>

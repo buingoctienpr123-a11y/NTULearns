@@ -168,3 +168,4 @@ D:\QLDAPM\Hỗ trợ và quản lí khóa học trực tuyến\Hỗ trợ và qu
 D:\QLDAPM\Hỗ trợ và quản lí khóa học trực tuyến\Hỗ trợ và quản lí khóa học trực tuyến\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\QLDAPM\Hỗ trợ và quản lí khóa học trực tuyến\Hỗ trợ và quản lí khóa học trực tuyến\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\QLDAPM\Hỗ trợ và quản lí khóa học trực tuyến\Hỗ trợ và quản lí khóa học trực tuyến\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\QLDAPM\Hỗ trợ và quản lí khóa học trực tuyến\Hỗ trợ và quản lí khóa học trực tuyến\obj\Debug\net8.0\Hỗ trợ và quản lí khóa học trực tuyến.sourcelink.json

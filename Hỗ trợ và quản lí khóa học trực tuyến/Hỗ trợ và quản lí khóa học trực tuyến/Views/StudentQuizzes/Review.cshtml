@@ -1,0 +1,107 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.QuizAttempt
+
+@{
+    ViewData["Title"] = "Chi tiết kết quả";
+
+    var questions = Model.Quiz?.Questions
+        .OrderBy(q => q.OrderIndex)
+        .ThenBy(q => q.QuestionId)
+        .ToList();
+
+    int questionNumber = 0;
+}
+
+<div class="container mt-4">
+
+    <h2>Chi tiết bài kiểm tra</h2>
+
+    <h5 class="text-muted">
+        @Model.Quiz?.Title
+    </h5>
+
+    <div class="alert @(Model.IsPassed
+                 ? "alert-success"
+                 : "alert-warning") mt-3">
+
+        <strong>Điểm số: @Model.Score / 10</strong>
+
+        <span class="ms-3">
+            @(Model.IsPassed ? "Đạt" : "Chưa đạt")
+        </span>
+    </div>
+
+    @if (questions != null)
+    {
+        @foreach (var question in questions)
+        {
+            questionNumber++;
+
+            var studentAnswer = Model.StudentAnswers
+            .FirstOrDefault(a =>
+            a.QuestionId == question.QuestionId);
+
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+
+                    <h5>
+                        Câu @questionNumber:
+                        @question.Content
+                    </h5>
+
+                    @foreach (var option in question.AnswerOptions
+                                .OrderBy(a => a.AnswerOptionId))
+                    {
+                        bool selected = studentAnswer != null &&
+                        studentAnswer.AnswerOptionId ==
+                        option.AnswerOptionId;
+
+                        string cssClass = "";
+
+                        if (option.IsCorrect)
+                        {
+                            cssClass = "list-group-item-success";
+                        }
+                        else if (selected)
+                        {
+                            cssClass = "list-group-item-danger";
+                        }
+
+                        <div class="list-group-item border rounded p-2 mb-2 @cssClass">
+
+                            @option.Content
+
+                            @if (option.IsCorrect)
+                            {
+                                <span class="badge bg-success ms-2">
+                                    Đáp án đúng
+                                </span>
+                            }
+
+                            @if (selected)
+                            {
+                                <span class="badge bg-primary ms-2">
+                                    Bạn đã chọn
+                                </span>
+                            }
+
+                        </div>
+                    }
+
+                    @if (studentAnswer == null)
+                    {
+                        <p class="text-muted">
+                            Bạn không trả lời câu hỏi này.
+                        </p>
+                    }
+                </div>
+            </div>
+        }
+    }
+
+    <a asp-action="History"
+       asp-route-quizId="@Model.QuizId"
+       class="btn btn-secondary">
+        Quay lại lịch sử
+    </a>
+
+</div>
