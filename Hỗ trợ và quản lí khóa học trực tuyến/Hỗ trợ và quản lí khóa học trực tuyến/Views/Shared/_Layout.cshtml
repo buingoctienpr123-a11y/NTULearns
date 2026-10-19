@@ -1,24 +1,65 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using System.Security.Claims
+
+@{
+    var currentController =
+        ViewContext.RouteData.Values["controller"]?.ToString();
+
+    var currentAction =
+        ViewContext.RouteData.Values["action"]?.ToString();
+
+    var isAdmin = User.IsInRole("Admin");
+    var isInstructor = User.IsInRole("GiangVien");
+    var isStudent = User.IsInRole("HocVien");
+
+    var isLoggedIn = User.Identity?.IsAuthenticated == true;
+
+    var displayName =
+        User.FindFirstValue(ClaimTypes.Name)
+        ?? User.Identity?.Name
+        ?? "Tài khoản";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - NTU Learn</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/ntu-learn.css"
+          asp-append-version="true" />
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg
+                    ntu-navbar sticky-top"
+             data-bs-theme="dark">
+
             <div class="container">
-                <a class="navbar-brand fw-bold"
+
+                <!-- Logo -->
+                <a class="navbar-brand"
                    asp-controller="Home"
                    asp-action="Index">
-                    NTU Learn
+                    🎓 NTU Learn
                 </a>
 
+                <!-- Mobile menu -->
                 <button class="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
@@ -26,59 +67,36 @@
                         aria-controls="ntuNavbar"
                         aria-expanded="false"
                         aria-label="Mở menu">
+
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="ntuNavbar">
+                <div class="collapse navbar-collapse"
+                     id="ntuNavbar">
 
+                    <!-- Menu chính -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                        <!-- Trang chủ -->
                         <li class="nav-item">
-                            <a class="nav-link"
+                            <a class="nav-link @(currentController == "Home" ? "active" : "")"
                                asp-controller="Home"
                                asp-action="Index">
                                 Trang chủ
                             </a>
                         </li>
 
-                        <!-- Danh sách khóa học -->
                         <li class="nav-item">
-                            <a class="nav-link"
+                            <a class="nav-link @(currentController == "Courses" ? "active" : "")"
                                asp-controller="Courses"
                                asp-action="Index">
                                 Khóa học
                             </a>
                         </li>
 
-                        @if (User.IsInRole("Admin") ||
-                                                User.IsInRole("GiangVien"))
+                        @if (isStudent)
                         {
                             <li class="nav-item">
-                                <a class="nav-link"
-                                   asp-controller="Dashboard"
-                                   asp-action="Index">
-                                    Dashboard
-                                </a>
-                            </li>
-                        }
-
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                   asp-controller="UsersManagement"
-                                   asp-action="Index">
-                                    Quản lý người dùng
-                                </a>
-                            </li>
-                        }
-
-                        <!-- Khóa học của tôi: chỉ học viên nhìn thấy -->
-                        @if (User.IsInRole("HocVien"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link"
+                                <a class="nav-link @(currentController == "Enrollments" ? "active" : "")"
                                    asp-controller="Enrollments"
                                    asp-action="MyCourses">
                                     Khóa học của tôi
@@ -86,63 +104,193 @@
                             </li>
                         }
 
+                        @if (isAdmin || isInstructor)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link @(currentController == "Dashboard" ? "active" : "")"
+                                   asp-controller="Dashboard"
+                                   asp-action="Index">
+                                    Dashboard
+                                </a>
+                            </li>
+                        }
+
+                        @if (isAdmin)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link @(currentController == "UsersManagement" ? "active" : "")"
+                                   asp-controller="UsersManagement"
+                                   asp-action="Index">
+                                    Người dùng
+                                </a>
+                            </li>
+                        }
+
                     </ul>
 
+                    <!-- Tài khoản -->
+                    <ul class="navbar-nav ms-auto">
 
-
-                    <div class="d-flex align-items-center gap-2">
-                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        @if (isLoggedIn)
                         {
-                            <span class="text-white">
-                                Xin chào, @User.Identity.Name
-                            </span>
+                            <li class="nav-item dropdown">
 
-                            <form asp-controller="Auth"
-                                  asp-action="Logout"
-                                  method="post"
-                                  class="d-inline">
+                                <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   id="accountDropdown"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
 
-                                @Html.AntiForgeryToken()
+                                    👤 @displayName
+                                </a>
 
-                                <button type="submit"
-                                        class="btn btn-light text-primary">
-                                    Đăng xuất
-                                </button>
-                            </form>
+                                <ul class="dropdown-menu dropdown-menu-end"
+                                    aria-labelledby="accountDropdown">
+
+                                    <li>
+                                        <span class="dropdown-item-text text-muted small">
+                                            @(isAdmin ? "Quản trị viên"
+                                                                                    : isInstructor ? "Giảng viên"
+                                                                                    : "Học viên")
+                                    </span>
+                                </li>
+
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+
+                                @if (isAdmin || isInstructor)
+                                    {
+                                        <li>
+                                            <a class="dropdown-item"
+                                               asp-controller="Dashboard"
+                                               asp-action="Index">
+                                                Dashboard
+                                            </a>
+                                        </li>
+                                    }
+
+                                    @if (isStudent)
+                                    {
+                                        <li>
+                                            <a class="dropdown-item"
+                                               asp-controller="Enrollments"
+                                               asp-action="MyCourses">
+                                                Khóa học của tôi
+                                            </a>
+                                        </li>
+                                    }
+
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+
+                                    <li>
+                                        <form asp-controller="Auth"
+                                              asp-action="Logout"
+                                              method="post">
+
+                                            @Html.AntiForgeryToken()
+
+                                            <button type="submit"
+                                                    class="dropdown-item text-danger">
+                                                Đăng xuất
+                                            </button>
+                                        </form>
+                                    </li>
+
+                                </ul>
+                            </li>
                         }
                         else
                         {
-                            <a class="btn btn-outline-light"
-                               asp-controller="Auth"
-                               asp-action="Login">
-                                Đăng nhập
-                            </a>
-
-                            <a class="btn btn-light text-primary"
-                               asp-controller="Auth"
-                               asp-action="Register">
-                                Đăng ký
-                            </a>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="Auth"
+                                   asp-action="Login">
+                                    Đăng nhập
+                                </a>
+                            </li>
                         }
-                    </div>
+
+                    </ul>
+
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    <!-- Nội dung chính -->
+    <main class="ntu-main">
+
         <div class="container">
-            &copy; 2026 - Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success
+                                alert-dismissible fade show"
+                     role="alert">
+
+                    @TempData["Success"]
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Đóng">
+                    </button>
+                </div>
+            }
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger
+                                alert-dismissible fade show"
+                     role="alert">
+
+                    @TempData["Error"]
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Đóng">
+                    </button>
+                </div>
+            }
+
+            @RenderBody()
+
         </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="ntu-footer">
+
+        <div class="container">
+
+            <strong>NTU Learn</strong>
+
+            <div class="small mt-1">
+                Hệ thống hỗ trợ và quản lý khóa học trực tuyến
+            </div>
+
+            <div class="small mt-1">
+                © @DateTime.Now.Year NTU Learn
+            </div>
+
+        </div>
+
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/js/site.js"
+            asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

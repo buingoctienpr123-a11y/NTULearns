@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hỗ trợ và quản lí khóa học trực tuyến")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc6bd43be0de999790a729903f4b6ec489f44c61")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffc6caec87299cc986d0b01bea4b7c7959a18fd2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hỗ trợ và quản lí khóa học trực tuyến")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hỗ trợ và quản lí khóa học trực tuyến")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

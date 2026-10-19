@@ -1,0 +1,292 @@
+﻿
+:root {
+    --ntu-primary: #123b65;
+    --ntu-primary-hover: #0c2c4d;
+    --ntu-accent: #0d6efd;
+    --ntu-background: #f5f7fb;
+    --ntu-text: #243247;
+}
+
+html {
+    font-size: 14px;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--ntu-background);
+    color: var(--ntu-text);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.ntu-navbar {
+    background: var(--ntu-primary);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+    .ntu-navbar .navbar-brand {
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+
+        .ntu-navbar .navbar-brand:hover {
+            color: #fff;
+        }
+
+    .ntu-navbar .nav-link {
+        color: rgba(255, 255, 255, 0.82);
+        padding: 9px 13px;
+        border-radius: 7px;
+        transition: background 0.2s, color 0.2s;
+    }
+
+        .ntu-navbar .nav-link:hover,
+        .ntu-navbar .nav-link.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+    .ntu-navbar .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .ntu-navbar .navbar-toggler-icon {
+        filter: brightness(0) invert(1);
+    }
+
+    .ntu-navbar .dropdown-menu {
+        border: 0;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+/* Main */
+.ntu-main {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    padding-top: 24px;
+    padding-bottom: 32px;
+}
+
+/* Cards */
+.card {
+    border: 1px solid #e7eaf0;
+    border-radius: 12px;
+}
+
+.card-header {
+    background: #fff;
+    border-bottom: 1px solid #e7eaf0;
+    padding: 15px 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 7px;
+}
+
+.btn-primary {
+    background: var(--ntu-accent);
+}
+
+/* Tables */
+.table {
+    vertical-align: middle;
+}
+
+.table-responsive {
+    border-radius: 8px;
+}
+
+/* Footer */
+.ntu-footer {
+    background: #fff;
+    border-top: 1px solid #e7eaf0;
+    padding: 18px 0;
+    color: #6c757d;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .ntu-main {
+        padding-top: 16px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .ntu-navbar .navbar-nav {
+        padding-top: 10px;
+    }
+
+    .ntu-navbar .nav-link {
+        margin-bottom: 4px;
+    }
+}
+
+/* Home hero */
+.ntu-hero {
+    background: linear-gradient( 135deg, #123b65 0%, #0d6efd 100% );
+    color: #fff;
+    padding: 65px 50px;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+    .ntu-hero h1 {
+        line-height: 1.2;
+    }
+
+    .ntu-hero .lead {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+.ntu-hero-icon {
+    font-size: 150px;
+    line-height: 1;
+}
+
+/* Course cards */
+.ntu-course-card {
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .ntu-course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+    }
+
+.ntu-course-image {
+    height: 190px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.ntu-course-placeholder {
+    height: 190px;
+    background: #eaf1fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+}
+
+.ntu-course-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Features */
+.ntu-features .card {
+    transition: transform 0.2s ease;
+}
+
+    .ntu-features .card:hover {
+        transform: translateY(-4px);
+    }
+
+/* Mobile */
+@media (max-width: 767px) {
+    .ntu-hero {
+        padding: 35px 22px;
+    }
+
+        .ntu-hero h1 {
+            font-size: 2rem;
+        }
+
+    .ntu-hero-icon {
+        font-size: 90px;
+    }
+}
+
+/* Dashboard */
+.ntu-dashboard h2 {
+    color: #243247;
+}
+
+.ntu-stat-card {
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .ntu-stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .ntu-stat-card .card-body {
+        padding: 22px;
+    }
+
+    .ntu-stat-card h3 {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .ntu-stat-card p {
+        margin-bottom: 0;
+        color: #6c757d;
+        font-size: 0.95rem;
+    }
+
+.ntu-stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.ntu-chart-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+}
+
+.ntu-dashboard .card-header {
+    font-weight: 600;
+}
+
+.ntu-dashboard .table td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+@media (max-width: 767px) {
+    .ntu-stat-card .card-body {
+        padding: 16px;
+    }
+
+    .ntu-stat-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .ntu-chart-container {
+        height: 260px;
+    }
+}

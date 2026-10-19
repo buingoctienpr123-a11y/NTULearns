@@ -302,5 +302,87 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            // 1. Lấy thông tin người dùng
+            var user = await _context.Users
+                .AsNoTracking()
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.UserId == id);
+
+            if (user == null)
+                return NotFound();
+
+            var model = new UserDetailsViewModel
+            {
+                UserId = user.UserId,
+                FullName = user.FullName,
+                Email = user.Email,
+                RoleName = user.Role?.RoleName ?? "Chưa xác định",
+                IsActive = user.IsActive,
+                CreatedAt = user.CreatedAt
+            };
+
+            // 2. Lấy các khóa học đã đăng ký
+            model.Enrollments = await _context.Enrollments
+                .AsNoTracking()
+                .Where(e => e.UserId == id)
+                .OrderByDescending(e => e.EnrolledAt)
+                .Select(e => new UserEnrollmentDetailViewModel
+                {
+                    CourseId = e.CourseId,
+
+                    CourseTitle = e.Course != null
+                        ? e.Course.Title
+                        : "Không xác định",
+
+                    EnrolledAt = e.EnrolledAt,
+                    Status = e.Status,
+
+                    TotalLessons = _context.Lessons
+                        .Count(l => l.CourseId == e.CourseId),
+
+                    CompletedLessons = _context.LessonProgresses
+                        .Count(p =>
+                            p.EnrollmentId == e.EnrollmentId &&
+                            p.IsCompleted)
+                })
+                .ToListAsync();
+
+            model.TotalEnrollments = model.Enrollments.Count;
+
+            model.TotalCompletedLessons =
+                model.Enrollments.Sum(e => e.CompletedLessons);
+
+            // 3. Lấy lịch sử làm Quiz
+            model.QuizHistory = await _context.QuizAttempts
+                .AsNoTracking()
+                .Where(a => a.Enrollment.UserId == id)
+                .OrderByDescending(a => a.StartedAt)
+                .Select(a => new UserQuizHistoryViewModel
+                {
+                    QuizAttemptId = a.QuizAttemptId,
+
+                    QuizTitle = a.Quiz.Title,
+
+                    CourseTitle = a.Enrollment.Course != null
+                        ? a.Enrollment.Course.Title
+                        : "Không xác định",
+
+                    StartedAt = a.StartedAt,
+                    SubmittedAt = a.SubmittedAt,
+                    Score = a.Score,
+                    IsPassed = a.IsPassed
+                })
+                .ToListAsync();
+
+            model.TotalQuizAttempts =
+                model.QuizHistory.Count(a => a.SubmittedAt != null);
+
+            return View(model);
+        }
+
     }
 }

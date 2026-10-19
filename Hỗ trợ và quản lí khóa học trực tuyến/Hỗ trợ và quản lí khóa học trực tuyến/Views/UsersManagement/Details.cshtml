@@ -1,0 +1,282 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.UserDetailsViewModel
+
+@{
+    ViewData["Title"] = "Chi tiết người dùng";
+}
+
+<div class="container mt-4 mb-5">
+
+    <div class="d-flex justify-content-between
+                align-items-center flex-wrap gap-2 mb-4">
+
+        <h2>Chi tiết người dùng</h2>
+
+        <a asp-controller="UsersManagement"
+           asp-action="Index"
+           class="btn btn-secondary">
+            Quay lại
+        </a>
+
+    </div>
+
+    <!-- Thông tin tài khoản -->
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-header">
+            <h5 class="mb-0">Thông tin tài khoản</h5>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <strong>Họ tên:</strong>
+                    @Model.FullName
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Email:</strong>
+                    @Model.Email
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Vai trò:</strong>
+                    @Model.RoleName
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Ngày tạo:</strong>
+                    @Model.CreatedAt.ToString("dd/MM/yyyy")
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Trạng thái:</strong>
+
+                    @if (Model.IsActive)
+                    {
+                        <span class="badge bg-success">
+                            Hoạt động
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">
+                            Đã khóa
+                        </span>
+                    }
+                </div>
+
+            </div>
+
+            <div class="mt-4">
+                <a asp-controller="UsersManagement"
+                   asp-action="ChangeRole"
+                   asp-route-id="@Model.UserId"
+                   class="btn btn-outline-primary">
+                    Thay đổi vai trò
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Thống kê -->
+    <div class="row g-3 mb-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h6>Khóa học đã đăng ký</h6>
+                    <h2>@Model.TotalEnrollments</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h6>Bài học hoàn thành</h6>
+                    <h2>@Model.TotalCompletedLessons</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h6>Lượt làm Quiz</h6>
+                    <h2>@Model.TotalQuizAttempts</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Khóa học đã đăng ký -->
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-header">
+            <h5 class="mb-0">Khóa học đã đăng ký</h5>
+        </div>
+
+        <div class="card-body">
+
+            @if (!Model.Enrollments.Any())
+            {
+                <p class="text-muted">
+                    Người dùng chưa đăng ký khóa học nào.
+                </p>
+            }
+            else
+            {
+                <div class="table-responsive">
+
+                    <table class="table table-bordered align-middle">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>Khóa học</th>
+                                <th>Ngày đăng ký</th>
+                                <th>Trạng thái</th>
+                                <th>Tiến độ</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model.Enrollments)
+                            {
+                                <tr>
+                                    <td>
+                                        <a asp-controller="Courses"
+                                           asp-action="Details"
+                                           asp-route-id="@item.CourseId">
+                                            @item.CourseTitle
+                                        </a>
+                                    </td>
+
+                                    <td>
+                                        @item.EnrolledAt.ToString("dd/MM/yyyy")
+                                    </td>
+
+                                    <td>@item.Status</td>
+
+                                    <td style="min-width: 180px;">
+
+                                        <div class="progress"
+                                             style="height: 20px;">
+
+                                            <div class="progress-bar bg-success"
+                                                 role="progressbar"
+                                                 style="width: @(item.ProgressPercent.ToString(System.Globalization.CultureInfo.InvariantCulture))%;"
+                                                 aria-valuenow="@item.ProgressPercent"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100">
+                                            </div>
+
+                                        </div>
+
+                                        <small>
+                                            @item.CompletedLessons /
+                                            @item.TotalLessons bài học
+                                            (@item.ProgressPercent%)
+                                        </small>
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <!-- Lịch sử làm Quiz -->
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+            <h5 class="mb-0">Lịch sử làm Quiz</h5>
+        </div>
+
+        <div class="card-body">
+
+            @if (!Model.QuizHistory.Any())
+            {
+                <p class="text-muted">
+                    Chưa có lịch sử làm bài kiểm tra.
+                </p>
+            }
+            else
+            {
+                <div class="table-responsive">
+
+                    <table class="table table-striped align-middle">
+
+                        <thead>
+                            <tr>
+                                <th>Khóa học</th>
+                                <th>Bài kiểm tra</th>
+                                <th>Ngày làm</th>
+                                <th>Điểm</th>
+                                <th>Kết quả</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var quiz in Model.QuizHistory)
+                            {
+                                <tr>
+                                    <td>@quiz.CourseTitle</td>
+
+                                    <td>@quiz.QuizTitle</td>
+
+                                    <td>
+                                        @quiz.StartedAt.ToString(
+                                        "dd/MM/yyyy HH:mm")
+                            </td>
+
+                            <td>
+                                @(quiz.Score?.ToString("0.##") ?? "--")
+                            </td>
+
+                            <td>
+                                @if (quiz.SubmittedAt == null)
+                                        {
+                                            <span class="badge bg-warning text-dark">
+                                                Chưa nộp
+                                            </span>
+                                        }
+                                        else if (quiz.IsPassed)
+                                        {
+                                            <span class="badge bg-success">
+                                                Đạt
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">
+                                                Chưa đạt
+                                            </span>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>

@@ -3,36 +3,52 @@
   "WorkspaceRootPath": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\usersmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\usersmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\wwwroot\\css\\ntu-learn.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\wwwroot\\css\\ntu-learn.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\usersmanagement\\changerole.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\usersmanagement\\changerole.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\usersmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\usersmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\viewmodels\\changeroleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\viewmodels\\changeroleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\viewmodels\\usermanagementviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\viewmodels\\usermanagementviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\usersmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\usersmanagement\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\usersmanagement\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\views\\usersmanagement\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\usersmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\controllers\\usersmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|d:\\qldapm\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\viewmodels\\userdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67447AAC-EE4A-4B57-81B1-D13B6B33D42D}|H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn.csproj|solutionrelative:h\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\viewmodels\\userdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,104 +66,156 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChangeRole.cshtml",
-              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\ChangeRole.cshtml",
-              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\ChangeRole.cshtml",
-              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\ChangeRole.cshtml",
-              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\ChangeRole.cshtml",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAQwH0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-19T04:20:31.72Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChangeRoleViewModel.cs",
-              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\ChangeRoleViewModel.cs",
-              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\ChangeRoleViewModel.cs",
-              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\ChangeRoleViewModel.cs",
-              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\ChangeRoleViewModel.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAYwBYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-19T04:17:46.498Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Program.cs",
-              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Program.cs",
-              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Program.cs",
-              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Program.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAYwFQAAAAAAAAAAAAAAA==",
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\DashboardController.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-19T04:11:34.701Z",
+              "WhenOpened": "2026-10-19T07:31:41.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAGABAAAAAAAAAAAYwHUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-19T07:31:00.47Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAYwEQAAAANAAAAAAAAAA==",
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Category.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Category.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Models\\Category.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-19T04:09:45.497Z",
+              "WhenOpened": "2026-10-19T07:26:56.262Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Index.cshtml",
-              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Index.cshtml",
-              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Index.cshtml",
-              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Index.cshtml",
-              "ViewState": "AgIAAPkAAAAAAAAAAAAQwA4BAAA0AAAAAAAAAA==",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-10-19T03:58:46.144Z",
+              "WhenOpened": "2026-10-19T07:25:32.566Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UsersManagementController.cs",
-              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\UsersManagementController.cs",
-              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\UsersManagementController.cs",
-              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\UsersManagementController.cs",
-              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\UsersManagementController.cs",
-              "ViewState": "AgIAABoBAAAAAAAAAAAYwC8BAAAAAAAAAAAAAA==",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAYwEkAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-19T03:57:51.931Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserManagementViewModel.cs",
-              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\UserManagementViewModel.cs",
-              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\UserManagementViewModel.cs",
-              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\UserManagementViewModel.cs",
-              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\UserManagementViewModel.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwDAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-19T03:57:18.214Z",
+              "WhenOpened": "2026-10-19T07:23:27.478Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "HomeViewModel.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\HomeViewModel.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\HomeViewModel.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\HomeViewModel.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\HomeViewModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T07:22:41.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ntu-learn.css",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\wwwroot\\css\\ntu-learn.css",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\wwwroot\\css\\ntu-learn.css",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\wwwroot\\css\\ntu-learn.css",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\wwwroot\\css\\ntu-learn.css",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAwwCQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-10-19T07:17:23.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Index.cshtml",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Index.cshtml",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Index.cshtml",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Index.cshtml",
+              "ViewState": "AgIAAAABAAAAAAAAAAAQwBUBAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-19T07:12:51.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Details.cshtml",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Details.cshtml",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Details.cshtml",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\UsersManagement\\Details.cshtml",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAQwBoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-19T07:12:22.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsersManagementController.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\UsersManagementController.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\UsersManagementController.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\UsersManagementController.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Controllers\\UsersManagementController.cs",
+              "ViewState": "AgIAAGwBAAAAAAAAAAAYwIEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T07:11:37.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserDetailsViewModel.cs",
+              "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\UserDetailsViewModel.cs",
+              "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\UserDetailsViewModel.cs",
+              "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\UserDetailsViewModel.cs",
+              "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\ViewModels\\UserDetailsViewModel.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAYwEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T07:11:05.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\QLDAPM\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "H\u1ED7 tr\u1EE3 v\u00E0 qu\u1EA3n l\u00ED kh\u00F3a h\u1ECDc tr\u1EF1c tuy\u1EBFn\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAADUAAAAAAAAAAAAQwEoAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAABMBAAAAAAAAAAAQwCgBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-10-18T14:16:55.087Z",
               "EditorCaption": ""

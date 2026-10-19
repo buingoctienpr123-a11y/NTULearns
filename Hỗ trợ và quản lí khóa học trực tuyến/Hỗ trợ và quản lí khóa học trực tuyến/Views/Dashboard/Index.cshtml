@@ -177,87 +177,87 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 
     <script>
-        // Dữ liệu đăng ký theo tháng từ SQL Server
-        const monthlyData = @Html.Raw(
-                    System.Text.Json.JsonSerializer.Serialize(
-                            Model.MonthlyEnrollments
-                    )
-            );
+            // Dữ liệu đăng ký theo tháng từ SQL Server
+            const monthlyData = @Html.Raw(
+                                            System.Text.Json.JsonSerializer.Serialize(
+                                                            Model.MonthlyEnrollments
+                                            )
+                            );
 
     const months = Array.from(
         { length: 12 },
         (_, i) => "Tháng " + (i + 1)
     );
 
-        const enrollmentCounts = Array(12).fill(0);
+            const enrollmentCounts = Array(12).fill(0);
 
-        monthlyData.forEach(item => {
-            if (item.Month >= 1 && item.Month <= 12) {
-                enrollmentCounts[item.Month - 1] = item.Total;
-            }
-        });
+            monthlyData.forEach(item => {
+                if (item.Month >= 1 && item.Month <= 12) {
+                    enrollmentCounts[item.Month - 1] = item.Total;
+                }
+            });
 
-        // Biểu đồ cột
-        new Chart(
-            document.getElementById("enrollmentChart"),
-            {
-                type: "bar",
+            // Biểu đồ cột
+            new Chart(
+                document.getElementById("enrollmentChart"),
+                {
+                    type: "bar",
 
-                data: {
-                    labels: months,
+                    data: {
+                        labels: months,
 
-                    datasets: [{
-                        label: "Số lượt đăng ký",
-                        data: enrollmentCounts,
-                        backgroundColor: "#0d6efd",
-                        borderRadius: 5
-                    }]
-                },
+                        datasets: [{
+                            label: "Số lượt đăng ký",
+                            data: enrollmentCounts,
+                            backgroundColor: "#0d6efd",
+                            borderRadius: 5
+                        }]
+                    },
 
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
 
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                precision: 0
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    precision: 0
+                                }
                             }
                         }
                     }
                 }
-            }
-        );
+            );
 
-        // Biểu đồ tròn
-        new Chart(
-            document.getElementById("quizChart"),
-            {
-                type: "doughnut",
+            // Biểu đồ tròn
+            new Chart(
+                document.getElementById("quizChart"),
+                {
+                    type: "doughnut",
 
-                data: {
-                    labels: ["Đạt", "Chưa đạt"],
+                    data: {
+                        labels: ["Đạt", "Chưa đạt"],
 
-                    datasets: [{
-                        data: [
-                            @Model.PassedQuizAttempts,
-                            @Model.FailedQuizAttempts
-                        ],
+                        datasets: [{
+                            data: [
+                                @Model.PassedQuizAttempts,
+                                @Model.FailedQuizAttempts
+                            ],
 
-                        backgroundColor: [
-                            "#198754",
-                            "#dc3545"
-                        ]
-                    }]
-                },
+                            backgroundColor: [
+                                "#198754",
+                                "#dc3545"
+                            ]
+                        }]
+                    },
 
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
                 }
-            }
-        );
+            );
     </script>
 
 
