@@ -63,6 +63,17 @@
                             </li>
                         }
 
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                   asp-controller="UsersManagement"
+                                   asp-action="Index">
+                                    Quản lý người dùng
+                                </a>
+                            </li>
+                        }
+
                         <!-- Khóa học của tôi: chỉ học viên nhìn thấy -->
                         @if (User.IsInRole("HocVien"))
                         {

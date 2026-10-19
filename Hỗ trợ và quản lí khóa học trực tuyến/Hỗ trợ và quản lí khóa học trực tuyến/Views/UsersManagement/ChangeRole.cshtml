@@ -1,0 +1,125 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.ChangeRoleViewModel
+
+@{
+    ViewData["Title"] = "Thay đổi vai trò";
+}
+
+<div class="container mt-4 mb-5">
+
+    <h2>Thay đổi vai trò người dùng</h2>
+
+    <p class="text-muted">
+        Cập nhật quyền truy cập trong hệ thống NTU Learn
+    </p>
+
+    <div class="card shadow-sm mt-4"
+         style="max-width: 650px;">
+
+        <div class="card-body">
+
+            <h5 class="card-title mb-3">
+                Thông tin tài khoản
+            </h5>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Họ và tên
+                </label>
+
+                <input class="form-control"
+                       value="@Model.FullName"
+                       readonly />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Email
+                </label>
+
+                <input class="form-control"
+                       value="@Model.Email"
+                       readonly />
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">
+                    Vai trò hiện tại
+                </label>
+
+                <input class="form-control"
+                       value="@Model.CurrentRoleName"
+                       readonly />
+            </div>
+
+            <form asp-controller="UsersManagement"
+                  asp-action="ChangeRole"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden"
+                       asp-for="UserId" />
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3">
+                </div>
+
+                <div class="mb-4">
+
+                    <label asp-for="NewRoleId"
+                           class="form-label fw-bold">
+                        Chọn vai trò mới
+                    </label>
+
+                    <select asp-for="NewRoleId"
+                            class="form-select">
+
+                        <option value="">
+                            -- Chọn vai trò --
+                        </option>
+
+                        @foreach (var role in Model.Roles)
+                        {
+                            <option value="@role.RoleId">
+                                @role.RoleName
+                            </option>
+                        }
+
+                    </select>
+
+                    <span asp-validation-for="NewRoleId"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+                <div class="alert alert-warning">
+                    Việc thay đổi vai trò sẽ ảnh hưởng
+                    đến quyền truy cập của tài khoản.
+                </div>
+
+                <div class="d-flex gap-2">
+
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Lưu thay đổi
+                    </button>
+
+                    <a asp-controller="UsersManagement"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        Quay lại
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

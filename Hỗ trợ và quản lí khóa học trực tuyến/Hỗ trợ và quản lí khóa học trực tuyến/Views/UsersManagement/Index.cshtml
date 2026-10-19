@@ -1,0 +1,313 @@
+﻿@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.UserManagementIndexViewModel
+
+@{
+    ViewData["Title"] = "Quản lý người dùng";
+}
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show"
+         role="alert">
+
+        @TempData["Success"]
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+        </button>
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show"
+         role="alert">
+
+        @TempData["Error"]
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+        </button>
+    </div>
+}
+
+
+@using System.Security.Claims
+
+@{
+    var currentUserIdString =
+        User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+    int.TryParse(currentUserIdString, out int currentUserId);
+}
+
+<div class="container mt-4 mb-5">
+
+    <h2 class="mb-2">Quản lý người dùng</h2>
+
+    <p class="text-muted">
+        Danh sách tài khoản trong hệ thống NTU Learn
+    </p>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+
+            <form asp-controller="UsersManagement"
+                  asp-action="Index"
+                  method="get">
+
+                <div class="row g-3">
+
+                    <div class="col-md-5">
+                        <label class="form-label">
+                            Tìm kiếm
+                        </label>
+
+                        <input type="text"
+                               name="keyword"
+                               value="@Model.Keyword"
+                               class="form-control"
+                               placeholder="Nhập tên hoặc email..." />
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label">
+                            Vai trò
+                        </label>
+
+                        <select name="roleId"
+                                class="form-select">
+
+                            <option value="">
+                                Tất cả vai trò
+                            </option>
+
+                            @foreach (var role in Model.Roles)
+                            {
+                                <option value="@role.RoleId"
+                                        selected="@(Model.RoleId == role.RoleId)">
+                                    @role.RoleName
+                                </option>
+                            }
+
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label class="form-label">
+                            Trạng thái
+                        </label>
+
+                        <select name="isActive"
+                                class="form-select">
+
+                            <option value="">
+                                Tất cả
+                            </option>
+
+                            <option value="true"
+                                    selected="@(Model.IsActive == true)">
+                                Hoạt động
+                            </option>
+
+                            <option value="false"
+                                    selected="@(Model.IsActive == false)">
+                                Đã khóa
+                            </option>
+
+                        </select>
+                    </div>
+
+                    <div class="col-md-2 d-flex align-items-end">
+                        <button type="submit"
+                                class="btn btn-primary w-100">
+                            Tìm kiếm
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <h5 class="mb-3">
+                Danh sách tài khoản
+                <span class="badge bg-primary">
+                    @Model.TotalUsers
+                </span>
+            </h5>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mã</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Vai trò</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày tạo</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (!Model.Users.Any())
+                        {
+                            <tr>
+                                <td colspan="7"
+                                    class="text-center text-muted">
+                                    Không tìm thấy tài khoản nào.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var user in Model.Users)
+                            {
+                                <tr>
+                                    <td>@user.UserId</td>
+
+                                    <td>
+                                        <strong>
+                                            @user.FullName
+                                        </strong>
+                                    </td>
+
+                                    <td>@user.Email</td>
+
+                                    <td>
+                                        @if (user.RoleName == "Admin")
+                                        {
+                                            <span class="badge bg-danger">
+                                                Admin
+                                            </span>
+                                        }
+                                        else if (user.RoleName == "GiangVien")
+                                        {
+                                            <span class="badge bg-info text-dark">
+                                                Giảng viên
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">
+                                                Học viên
+                                            </span>
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (user.IsActive)
+                                        {
+                                            <span class="badge bg-success">
+                                                Hoạt động
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">
+                                                Đã khóa
+                                            </span>
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @user.CreatedAt.ToString("dd/MM/yyyy")
+                                    </td>
+
+                                    <td>
+                                        @if (user.UserId == currentUserId && user.IsActive)
+                                        {
+                                            <span class="text-muted">
+                                                Tài khoản hiện tại
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <form asp-controller="UsersManagement"
+                                                  asp-action="ToggleStatus"
+                                                  method="post"
+                                                  class="d-inline"
+                                                  onsubmit="return confirm('Bạn có chắc muốn thay đổi trạng thái tài khoản này?');">
+
+                                                @Html.AntiForgeryToken()
+
+                                                <input type="hidden"
+                                                       name="id"
+                                                       value="@user.UserId" />
+
+                                                @if (user.IsActive)
+                                                {
+                                                    <button type="submit"
+                                                            class="btn btn-danger btn-sm">
+                                                        Khóa
+                                                    </button>
+                                                }
+                                                else
+                                                {
+                                                    <button type="submit"
+                                                            class="btn btn-success btn-sm">
+                                                        Mở khóa
+                                                    </button>
+                                                }
+
+                                                <a asp-controller="UsersManagement"
+                                                   asp-action="ChangeRole"
+                                                   asp-route-id="@user.UserId"
+                                                   class="btn btn-outline-primary btn-sm">
+                                                    Đổi vai trò
+                                                </a>
+
+                                            </form>
+                                        }
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <nav aria-label="Phân trang người dùng">
+                <ul class="pagination justify-content-center mt-3">
+
+                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        <li class="page-item @(i == Model.Page ? "active" : "")">
+
+                            <a class="page-link"
+                               asp-controller="UsersManagement"
+                               asp-action="Index"
+                               asp-route-page="@i"
+                               asp-route-keyword="@Model.Keyword"
+                               asp-route-roleId="@Model.RoleId"
+                               asp-route-isActive="@Model.IsActive">
+                                @i
+                            </a>
+
+                        </li>
+                    }
+
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+</div>

@@ -50,11 +50,20 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
                 .Include(u => u.Role)
                 .FirstOrDefaultAsync(u => u.Email == email);
 
-            if (user == null || !user.IsActive)
+            if (user == null)
             {
                 ModelState.AddModelError(
-                    string.Empty,
-                    "Email hoặc mật khẩu không chính xác, hoặc tài khoản đã bị khóa.");
+                    "",
+                    "Email hoặc mật khẩu không chính xác.");
+
+                return View(model);
+            }
+
+            if (!user.IsActive)
+            {
+                ModelState.AddModelError(
+                    "",
+                    "Tài khoản đã bị khóa. Vui lòng liên hệ quản trị viên.");
 
                 return View(model);
             }
