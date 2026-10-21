@@ -30,6 +30,10 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models
         public DateTime CreatedAt { get; set; }
             = DateTime.Now;
 
+        // Lý do Admin từ chối khóa học (khi Status = "Rejected")
+        [StringLength(255)]
+        public string? RejectionReason { get; set; }
+
         public Category? Category { get; set; }
 
         public User? Instructor { get; set; }

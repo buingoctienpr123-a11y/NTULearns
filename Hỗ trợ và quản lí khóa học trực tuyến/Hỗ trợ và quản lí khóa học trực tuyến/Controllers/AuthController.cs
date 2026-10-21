@@ -80,6 +80,24 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
                 return View(model);
             }
 
+            if (user.ApprovalStatus == "Pending")
+            {
+                ModelState.AddModelError(
+                    string.Empty,
+                    "Tài khoản đang chờ duyệt. Vui lòng chờ quản trị viên phê duyệt.");
+
+                return View(model);
+            }
+
+            if (user.ApprovalStatus == "Rejected")
+            {
+                ModelState.AddModelError(
+                    string.Empty,
+                    "Tài khoản đã bị từ chối duyệt. Vui lòng liên hệ quản trị viên.");
+
+                return View(model);
+            }
+
             var claims = new List<Claim>
     {
         new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
@@ -150,14 +168,16 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
                 return View(model);
             }
 
-            Role? studentRole = await _context.Roles
-                .FirstOrDefaultAsync(r => r.RoleName == "HocVien");
+            bool isInstructor = model.RoleName == "GiangVien";
 
-            if (studentRole == null)
+            Role? role = await _context.Roles
+                .FirstOrDefaultAsync(r => r.RoleName == model.RoleName);
+
+            if (role == null)
             {
                 ModelState.AddModelError(
                     string.Empty,
-                    "Không tìm thấy vai trò Học viên trong database.");
+                    "Không tìm thấy vai trò trong database.");
 
                 return View(model);
             }
@@ -166,9 +186,11 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
             {
                 FullName = model.FullName.Trim(),
                 Email = email,
-                RoleId = studentRole.RoleId,
+                RoleId = role.RoleId,
                 CreatedAt = DateTime.Now,
-                IsActive = true
+                IsActive = true,
+                // Giảng viên phải chờ Admin duyệt mới đăng nhập được
+                ApprovalStatus = isInstructor ? "Pending" : "Approved"
             };
 
             user.PasswordHash = _passwordHasher.HashPassword(
@@ -177,8 +199,9 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            TempData["SuccessMessage"] =
-                "Đăng ký thành công. Bạn có thể đăng nhập.";
+            TempData["Success"] = isInstructor
+                ? "Đăng ký thành công. Tài khoản giảng viên đang chờ quản trị viên duyệt."
+                : "Đăng ký thành công. Bạn có thể đăng nhập.";
 
             return RedirectToAction("Login");
         }

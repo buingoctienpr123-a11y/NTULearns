@@ -64,6 +64,12 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data
                 .Property(c => c.Price)
                 .HasPrecision(18, 2);
 
+            // Tài khoản đã có trước khi thêm chức năng duyệt
+            // được coi là đã duyệt.
+            modelBuilder.Entity<User>()
+                .Property(u => u.ApprovalStatus)
+                .HasDefaultValue("Approved");
+
             modelBuilder.Entity<Role>().HasData(
                 new Role
                 {

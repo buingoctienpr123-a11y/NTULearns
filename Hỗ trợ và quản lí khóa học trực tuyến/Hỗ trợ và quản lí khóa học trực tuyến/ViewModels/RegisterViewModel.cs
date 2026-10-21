@@ -28,5 +28,12 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels
                 ErrorMessage = "Mật khẩu xác nhận không khớp.")]
             [Display(Name = "Xác nhận mật khẩu")]
             public string ConfirmPassword { get; set; } = string.Empty;
+
+            // Chỉ cho tự đăng ký Học viên hoặc Giảng viên (không cho đăng ký Admin)
+            [Required(ErrorMessage = "Vui lòng chọn vai trò.")]
+            [RegularExpression("^(HocVien|GiangVien)$",
+                ErrorMessage = "Vai trò không hợp lệ.")]
+            [Display(Name = "Bạn là")]
+            public string RoleName { get; set; } = "HocVien";
     }
 }
