@@ -72,6 +72,41 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Certificate", b =>
+                {
+                    b.Property<int>("CertificateId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CertificateId"));
+
+                    b.Property<string>("CertificateCode")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("IssuedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CertificateId");
+
+                    b.HasIndex("CertificateCode")
+                        .IsUnique();
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("UserId", "CourseId")
+                        .IsUnique();
+
+                    b.ToTable("Certificates");
+                });
+
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course", b =>
                 {
                     b.Property<int>("CourseId")
@@ -537,6 +572,25 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.Navigation("Question");
                 });
 
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Certificate", b =>
+                {
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course", "Course")
+                        .WithMany("Certificates")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.User", "User")
+                        .WithMany("Certificates")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course", b =>
                 {
                     b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Category", "Category")
@@ -726,6 +780,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
 
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course", b =>
                 {
+                    b.Navigation("Certificates");
+
                     b.Navigation("Enrollments");
 
                     b.Navigation("Lessons");
@@ -775,6 +831,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
 
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.User", b =>
                 {
+                    b.Navigation("Certificates");
+
                     b.Navigation("Enrollments");
 
                     b.Navigation("InstructorCourses");

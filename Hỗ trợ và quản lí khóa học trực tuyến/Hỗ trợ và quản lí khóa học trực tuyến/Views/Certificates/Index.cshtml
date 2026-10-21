@@ -1,0 +1,68 @@
+@model IEnumerable<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Certificate>
+
+@{
+    ViewData["Title"] = "Chứng chỉ của tôi";
+}
+
+<div class="container mt-4 mb-5">
+
+    <h2 class="mb-2">Chứng chỉ của tôi</h2>
+
+    <p class="text-muted">
+        Chứng chỉ được cấp tự động khi bạn hoàn thành 100% bài học
+        và đạt tất cả bài kiểm tra của khóa học.
+    </p>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Khóa học</th>
+                            <th>Giảng viên</th>
+                            <th>Mã chứng chỉ</th>
+                            <th>Ngày cấp</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">
+                                    Bạn chưa có chứng chỉ nào.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Course?.Title</td>
+                                    <td>@item.Course?.Instructor?.FullName</td>
+                                    <td><code>@item.CertificateCode</code></td>
+                                    <td>@item.IssuedAt.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <a asp-action="Details"
+                                           asp-route-id="@item.CertificateId"
+                                           class="btn btn-primary btn-sm">
+                                            Xem chứng chỉ
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>

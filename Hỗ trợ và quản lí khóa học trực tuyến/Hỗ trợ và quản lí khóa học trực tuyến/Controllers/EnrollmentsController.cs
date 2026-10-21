@@ -160,6 +160,11 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
 
             ViewBag.ProgressPercent = progressPercent;
 
+            // Chứng chỉ đã cấp theo từng khóa học
+            ViewBag.CertificateIds = await _context.Certificates
+                .Where(c => c.UserId == userId)
+                .ToDictionaryAsync(c => c.CourseId, c => c.CertificateId);
+
             return View(enrollments);
         }
 

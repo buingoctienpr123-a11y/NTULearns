@@ -1,0 +1,27 @@
+@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Certificate
+
+@{
+    ViewData["Title"] = "Chứng chỉ";
+}
+
+<div class="container mt-4 mb-5">
+
+    <div class="d-flex gap-2 mb-3 no-print">
+        <button type="button"
+                class="btn btn-primary"
+                onclick="window.print()">
+            In chứng chỉ
+        </button>
+
+        @if (User.IsInRole("HocVien"))
+        {
+            <a asp-action="Index"
+               class="btn btn-outline-secondary">
+                Quay lại danh sách chứng chỉ
+            </a>
+        }
+    </div>
+
+    <partial name="_CertificateCard" model="Model" />
+
+</div>

@@ -109,6 +109,13 @@
                                     Lịch sử giao dịch
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link @(currentController == "Certificates" && currentAction != "Verify" ? "active" : "")"
+                                   asp-controller="Certificates"
+                                   asp-action="Index">
+                                    Chứng chỉ
+                                </a>
+                            </li>
                         }
 
                         @if (isAdmin || isInstructor)
@@ -208,6 +215,13 @@
                                                 Lịch sử giao dịch
                                             </a>
                                         </li>
+                                        <li>
+                                            <a class="dropdown-item"
+                                               asp-controller="Certificates"
+                                               asp-action="Index">
+                                                Chứng chỉ của tôi
+                                            </a>
+                                        </li>
                                     }
 
                                     <li>
@@ -301,6 +315,14 @@
 
             <div class="small mt-1">
                 Hệ thống hỗ trợ và quản lý khóa học trực tuyến
+            </div>
+
+            <div class="small mt-1">
+                <a asp-controller="Certificates"
+                   asp-action="Verify"
+                   class="link-secondary">
+                    Xác minh chứng chỉ
+                </a>
             </div>
 
             <div class="small mt-1">

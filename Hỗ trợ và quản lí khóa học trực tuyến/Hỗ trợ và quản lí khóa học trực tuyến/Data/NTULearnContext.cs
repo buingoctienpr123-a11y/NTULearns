@@ -39,6 +39,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data
 
         public DbSet<Transaction> Transactions { get; set; }
 
+        public DbSet<Certificate> Certificates { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -229,6 +231,28 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data
 
             modelBuilder.Entity<Transaction>()
                 .HasIndex(t => t.TransactionCode)
+                .IsUnique();
+
+            // Chứng chỉ hoàn thành khóa học
+            modelBuilder.Entity<Certificate>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Certificates)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Certificate>()
+                .HasOne(c => c.Course)
+                .WithMany(c => c.Certificates)
+                .HasForeignKey(c => c.CourseId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Certificate>()
+                .HasIndex(c => c.CertificateCode)
+                .IsUnique();
+
+            // Mỗi học viên chỉ nhận một chứng chỉ cho mỗi khóa học
+            modelBuilder.Entity<Certificate>()
+                .HasIndex(c => new { c.UserId, c.CourseId })
                 .IsUnique();
 
         }

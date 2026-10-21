@@ -21,6 +21,9 @@ builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 // Lưu trữ tài liệu bài học (ngoài wwwroot)
 builder.Services.AddSingleton<LessonFileStorage>();
 
+// Cấp chứng chỉ khi học viên hoàn thành khóa học
+builder.Services.AddScoped<CertificateService>();
+
 // Cấu hình xác thực bằng Cookie
 builder.Services
     .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

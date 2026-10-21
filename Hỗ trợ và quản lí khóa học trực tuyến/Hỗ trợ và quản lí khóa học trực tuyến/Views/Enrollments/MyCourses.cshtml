@@ -6,18 +6,15 @@
     var progressPercent = ViewBag.ProgressPercent
         as Dictionary<int, double>
         ?? new Dictionary<int, double>();
+
+    var certificateIds = ViewBag.CertificateIds
+        as Dictionary<int, int>
+        ?? new Dictionary<int, int>();
 }
 
 <div class="container mt-4">
 
     <h2 class="mb-4">Khóa học của tôi</h2>
-
-    @if (TempData["Success"] != null)
-    {
-        <div class="alert alert-success">
-            @TempData["Success"]
-        </div>
-    }
 
     @if (!Model.Any())
     {
@@ -98,6 +95,16 @@
                                    class="btn btn-primary">
                                     Tiếp tục học
                                 </a>
+
+                                @if (certificateIds.TryGetValue(item.CourseId, out int certificateId))
+                                {
+                                    <a asp-controller="Certificates"
+                                       asp-action="Details"
+                                       asp-route-id="@certificateId"
+                                       class="btn btn-outline-success">
+                                        🏅 Xem chứng chỉ
+                                    </a>
+                                }
                             </div>
 
                         </div>

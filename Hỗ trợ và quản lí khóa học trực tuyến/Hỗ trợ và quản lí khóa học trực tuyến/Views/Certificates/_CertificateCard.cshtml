@@ -1,0 +1,45 @@
+@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Certificate
+
+<div class="ntu-certificate">
+
+    <div class="ntu-certificate-inner">
+
+        <div class="ntu-certificate-brand">🎓 NTU Learn</div>
+
+        <h1 class="ntu-certificate-title">CHỨNG CHỈ HOÀN THÀNH</h1>
+
+        <p class="mb-1">Chứng nhận học viên</p>
+
+        <div class="ntu-certificate-name">@Model.User?.FullName</div>
+
+        <p class="mb-1">đã hoàn thành khóa học</p>
+
+        <div class="ntu-certificate-course">@Model.Course?.Title</div>
+
+        <div class="row mt-4 text-center">
+            <div class="col-4">
+                <div class="small text-muted">Giảng viên</div>
+                <strong>@(Model.Course?.Instructor?.FullName ?? "Chưa cập nhật")</strong>
+            </div>
+
+            <div class="col-4">
+                <div class="small text-muted">Ngày cấp</div>
+                <strong>@Model.IssuedAt.ToString("dd/MM/yyyy")</strong>
+            </div>
+
+            <div class="col-4">
+                <div class="small text-muted">Mã chứng chỉ</div>
+                <strong>@Model.CertificateCode</strong>
+            </div>
+        </div>
+
+        <div class="small text-muted mt-4">
+            Xác minh tại:
+            @Url.Action("Verify", "Certificates",
+                new { code = Model.CertificateCode },
+                Context.Request.Scheme)
+        </div>
+
+    </div>
+
+</div>
