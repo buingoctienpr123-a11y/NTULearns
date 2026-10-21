@@ -35,6 +35,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data
 
         public DbSet<StudentAnswer> StudentAnswers { get; set; }
 
+        public DbSet<LessonAttachment> LessonAttachments { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -192,6 +194,18 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data
                     a.QuizAttemptId,
                     a.QuestionId
                 })
+                .IsUnique();
+
+            // Tài liệu thuộc một bài học,
+            // xóa bài học thì xóa luôn tài liệu.
+            modelBuilder.Entity<LessonAttachment>()
+                .HasOne(a => a.Lesson)
+                .WithMany(l => l.Attachments)
+                .HasForeignKey(a => a.LessonId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<LessonAttachment>()
+                .HasIndex(a => a.StoredFileName)
                 .IsUnique();
 
         }

@@ -83,6 +83,7 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
 
             var lesson = await _context.Lessons
                 .Include(l => l.Course)
+                .Include(l => l.Attachments)
                 .FirstOrDefaultAsync(l => l.LessonId == id);
 
             if (lesson == null)

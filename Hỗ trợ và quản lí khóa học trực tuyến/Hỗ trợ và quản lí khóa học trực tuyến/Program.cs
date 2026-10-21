@@ -1,6 +1,7 @@
 ﻿
 using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data;
 using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models;
+using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -16,6 +17,9 @@ builder.Services.AddDbContext<NTULearnContext>(options =>
 
 // Đăng ký dịch vụ băm và kiểm tra mật khẩu
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+
+// Lưu trữ tài liệu bài học (ngoài wwwroot)
+builder.Services.AddSingleton<LessonFileStorage>();
 
 // Cấu hình xác thực bằng Cookie
 builder.Services

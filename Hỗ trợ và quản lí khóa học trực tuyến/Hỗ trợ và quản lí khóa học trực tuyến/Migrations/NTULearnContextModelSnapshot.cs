@@ -190,6 +190,48 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.ToTable("Lessons");
                 });
 
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.LessonAttachment", b =>
+                {
+                    b.Property<int>("LessonAttachmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LessonAttachmentId"));
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("LessonId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OriginalFileName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("StoredFileName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("UploadedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("LessonAttachmentId");
+
+                    b.HasIndex("LessonId");
+
+                    b.HasIndex("StoredFileName")
+                        .IsUnique();
+
+                    b.ToTable("LessonAttachments");
+                });
+
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.LessonProgress", b =>
                 {
                     b.Property<int>("LessonProgressId")
@@ -493,6 +535,17 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.Navigation("Course");
                 });
 
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.LessonAttachment", b =>
+                {
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson", "Lesson")
+                        .WithMany("Attachments")
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lesson");
+                });
+
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.LessonProgress", b =>
                 {
                     b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Enrollment", "Enrollment")
@@ -619,6 +672,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
 
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson", b =>
                 {
+                    b.Navigation("Attachments");
+
                     b.Navigation("LessonProgresses");
                 });
 
