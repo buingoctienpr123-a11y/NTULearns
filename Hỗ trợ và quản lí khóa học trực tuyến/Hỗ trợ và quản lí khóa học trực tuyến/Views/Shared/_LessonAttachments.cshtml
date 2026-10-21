@@ -1,0 +1,137 @@
+@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Lesson
+
+@{
+    // canManage = true: hiển thị form tải lên và nút xóa
+    bool canManage = ViewData["CanManage"] is bool value && value;
+
+    var attachments = Model.Attachments
+        .OrderBy(a => a.UploadedAt)
+        .ToList();
+
+    string FormatSize(long bytes)
+    {
+        if (bytes >= 1024 * 1024)
+            return (bytes / 1024.0 / 1024.0).ToString("0.##") + " MB";
+
+        if (bytes >= 1024)
+            return (bytes / 1024.0).ToString("0.##") + " KB";
+
+        return bytes + " B";
+    }
+}
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+
+        <h5 class="mb-3">
+            Tài liệu bài học
+            <span class="badge bg-primary">@attachments.Count</span>
+        </h5>
+
+        @if (!attachments.Any())
+        {
+            <p class="text-muted mb-0">Bài học chưa có tài liệu đính kèm.</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Tên tài liệu</th>
+                            <th style="width: 120px;">Dung lượng</th>
+                            <th style="width: 160px;">Ngày tải lên</th>
+                            <th style="width: @(canManage ? "190px" : "120px");">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in attachments)
+                        {
+                            <tr>
+                                <td>📄 @item.OriginalFileName</td>
+                                <td>@FormatSize(item.FileSize)</td>
+                                <td>@item.UploadedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>
+                                    <a asp-controller="LessonAttachments"
+                                       asp-action="Download"
+                                       asp-route-id="@item.LessonAttachmentId"
+                                       class="btn btn-outline-primary btn-sm">
+                                        Tải về
+                                    </a>
+
+                                    @if (canManage)
+                                    {
+                                        <form asp-controller="LessonAttachments"
+                                              asp-action="Delete"
+                                              asp-route-id="@item.LessonAttachmentId"
+                                              method="post"
+                                              class="d-inline"
+                                              onsubmit="return confirm('Bạn có chắc muốn xóa tài liệu này?');">
+
+                                            @Html.AntiForgeryToken()
+
+                                            <button type="submit"
+                                                    class="btn btn-outline-danger btn-sm">
+                                                Xóa
+                                            </button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        @if (canManage)
+        {
+            <hr />
+
+            <form asp-controller="LessonAttachments"
+                  asp-action="Upload"
+                  method="post"
+                  enctype="multipart/form-data"
+                  class="row g-2 align-items-end">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" name="lessonId" value="@Model.LessonId" />
+
+                <div class="col-md-9">
+                    <label for="attachmentFile" class="form-label">
+                        Tải tài liệu lên
+                    </label>
+
+                    <input type="file"
+                           id="attachmentFile"
+                           name="file"
+                           class="form-control"
+                           accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.zip,.txt"
+                           required />
+
+                    <div class="form-text">
+                        Chấp nhận: pdf, doc, docx, ppt, pptx, xls, xlsx, zip, txt. Tối đa 20MB.
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-success w-100 mb-4">
+                        Tải lên
+                    </button>
+                </div>
+            </form>
+
+            <script>
+                document.getElementById("attachmentFile")
+                    .addEventListener("change", function () {
+                        if (this.files.length && this.files[0].size > 20 * 1024 * 1024) {
+                            alert("File vượt quá dung lượng tối đa 20MB.");
+                            this.value = "";
+                        }
+                    });
+            </script>
+        }
+
+    </div>
+</div>

@@ -35,6 +35,12 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data
 
         public DbSet<StudentAnswer> StudentAnswers { get; set; }
 
+        public DbSet<LessonAttachment> LessonAttachments { get; set; }
+
+        public DbSet<Transaction> Transactions { get; set; }
+
+        public DbSet<Certificate> Certificates { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -192,6 +198,61 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data
                     a.QuizAttemptId,
                     a.QuestionId
                 })
+                .IsUnique();
+
+            // Tài liệu thuộc một bài học,
+            // xóa bài học thì xóa luôn tài liệu.
+            modelBuilder.Entity<LessonAttachment>()
+                .HasOne(a => a.Lesson)
+                .WithMany(l => l.Attachments)
+                .HasForeignKey(a => a.LessonId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<LessonAttachment>()
+                .HasIndex(a => a.StoredFileName)
+                .IsUnique();
+
+            // Giao dịch mua khóa học
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.User)
+                .WithMany(u => u.Transactions)
+                .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.Course)
+                .WithMany(c => c.Transactions)
+                .HasForeignKey(t => t.CourseId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Transaction>()
+                .Property(t => t.Amount)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Transaction>()
+                .HasIndex(t => t.TransactionCode)
+                .IsUnique();
+
+            // Chứng chỉ hoàn thành khóa học
+            modelBuilder.Entity<Certificate>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Certificates)
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Certificate>()
+                .HasOne(c => c.Course)
+                .WithMany(c => c.Certificates)
+                .HasForeignKey(c => c.CourseId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Certificate>()
+                .HasIndex(c => c.CertificateCode)
+                .IsUnique();
+
+            // Mỗi học viên chỉ nhận một chứng chỉ cho mỗi khóa học
+            modelBuilder.Entity<Certificate>()
+                .HasIndex(c => new { c.UserId, c.CourseId })
                 .IsUnique();
 
         }

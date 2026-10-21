@@ -25,5 +25,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models
 
         public ICollection<LessonProgress> LessonProgresses { get; set; }
             = new List<LessonProgress>();
+
+        public ICollection<LessonAttachment> Attachments { get; set; }
+            = new List<LessonAttachment>();
     }
 }

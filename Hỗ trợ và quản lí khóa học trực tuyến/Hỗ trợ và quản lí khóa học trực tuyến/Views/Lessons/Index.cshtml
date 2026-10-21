@@ -29,6 +29,7 @@
             <th>STT</th>
             <th>Tên bài học</th>
             <th>Video</th>
+            <th>Tài liệu</th>
             <th>Thao tác</th>
         </tr>
     </thead>
@@ -54,6 +55,12 @@
                     {
                         <span>Không có</span>
                     }
+                </td>
+
+                <td>
+                    <span class="badge bg-secondary">
+                        @item.Attachments.Count file
+                    </span>
                 </td>
 
                 <td>

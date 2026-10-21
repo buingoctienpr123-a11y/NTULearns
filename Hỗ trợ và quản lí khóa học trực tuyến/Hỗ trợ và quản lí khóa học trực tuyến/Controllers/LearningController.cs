@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data;
 using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models;
+using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Services;
 
 namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
 {
@@ -12,10 +13,14 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
     public class LearningController : Controller
     {
         private readonly NTULearnContext _context;
+        private readonly CertificateService _certificateService;
 
-        public LearningController(NTULearnContext context)
+        public LearningController(
+            NTULearnContext context,
+            CertificateService certificateService)
         {
             _context = context;
+            _certificateService = certificateService;
         }
 
         private int? CurrentUserId()
@@ -83,6 +88,7 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
 
             var lesson = await _context.Lessons
                 .Include(l => l.Course)
+                .Include(l => l.Attachments)
                 .FirstOrDefaultAsync(l => l.LessonId == id);
 
             if (lesson == null)
@@ -159,6 +165,12 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
 
             TempData["Success"] =
                 "Đã hoàn thành bài học!";
+
+            if (await _certificateService.TryIssueAsync(enrollment))
+            {
+                TempData["Success"] =
+                    "Chúc mừng! Bạn đã hoàn thành khóa học và được cấp chứng chỉ.";
+            }
 
             return RedirectToAction(
                 nameof(Index),

@@ -95,6 +95,39 @@
 
     </div>
 
+    <div class="row g-3 mt-3">
+
+        <div class="col-md-6">
+            <div class="card shadow-sm border-success">
+                <div class="card-body">
+                    <h6>Tổng doanh thu</h6>
+                    <h3 class="text-success">
+                        @Model.TotalRevenue.ToString("N0") VNĐ
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm border-success">
+                <div class="card-body">
+                    <h6>Giao dịch thành công</h6>
+                    <h3>@Model.SuccessfulTransactions</h3>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Transactions"
+                           asp-action="Index"
+                           class="btn btn-outline-success btn-sm">
+                            Xem danh sách giao dịch
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div class="card shadow-sm mt-4">
         <div class="card-body">
 

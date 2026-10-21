@@ -290,3 +290,64 @@ body {
         height: 260px;
     }
 }
+
+/* Chứng chỉ */
+.ntu-certificate {
+    background: #fff;
+    border: 10px solid var(--ntu-primary);
+    padding: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ntu-certificate-inner {
+    border: 2px solid #c9a227;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.ntu-certificate-brand {
+    color: var(--ntu-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ntu-certificate-title {
+    color: var(--ntu-primary);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.ntu-certificate-name {
+    color: #c9a227;
+    font-size: 2rem;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.ntu-certificate-course {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+@media print {
+    .ntu-navbar,
+    .ntu-footer,
+    .no-print,
+    .alert {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .ntu-certificate {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

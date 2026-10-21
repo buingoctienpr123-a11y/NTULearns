@@ -39,5 +39,11 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models
         public ICollection<Enrollment> Enrollments { get; set; }
             = new List<Enrollment>();
 
+        public ICollection<Transaction> Transactions { get; set; }
+            = new List<Transaction>();
+
+        public ICollection<Certificate> Certificates { get; set; }
+            = new List<Certificate>();
+
     }
 }

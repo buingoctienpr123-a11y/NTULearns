@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data;
 using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models;
+using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Services;
 using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels;
 
 namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
@@ -13,10 +14,14 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
     public class StudentQuizzesController : Controller
     {
         private readonly NTULearnContext _context;
+        private readonly CertificateService _certificateService;
 
-        public StudentQuizzesController(NTULearnContext context)
+        public StudentQuizzesController(
+            NTULearnContext context,
+            CertificateService certificateService)
         {
             _context = context;
+            _certificateService = certificateService;
         }
 
         private int? CurrentUserId()
@@ -584,6 +589,21 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
             attempt.SubmittedAt = submittedAtUtc;
 
             await _context.SaveChangesAsync();
+
+            // Đạt Quiz có thể là điều kiện cuối cùng để nhận chứng chỉ
+            if (attempt.IsPassed)
+            {
+                var enrollment = attempt.Enrollment
+                    ?? await _context.Enrollments
+                        .FirstAsync(e =>
+                            e.EnrollmentId == attempt.EnrollmentId);
+
+                if (await _certificateService.TryIssueAsync(enrollment))
+                {
+                    TempData["Success"] =
+                        "Chúc mừng! Bạn đã hoàn thành khóa học và được cấp chứng chỉ.";
+                }
+            }
         }
 
     }

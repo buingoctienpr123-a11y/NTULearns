@@ -36,14 +36,12 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
             if (course == null || course.Status != "Published")
                 return NotFound();
 
-            // Chỉ cho đăng ký khóa học miễn phí.
+            // Khóa học trả phí phải thanh toán trước,
+            // Enrollment được tạo khi giao dịch thành công.
             if (course.Price > 0)
             {
-                TempData["Error"] =
-                    "Khóa học trả phí chưa hỗ trợ đăng ký trực tiếp.";
-
                 return RedirectToAction(
-                    "Details", "Courses", new { id = courseId });
+                    "Checkout", "Transactions", new { courseId });
             }
 
             bool exists = await _context.Enrollments
@@ -161,6 +159,11 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
             }
 
             ViewBag.ProgressPercent = progressPercent;
+
+            // Chứng chỉ đã cấp theo từng khóa học
+            ViewBag.CertificateIds = await _context.Certificates
+                .Where(c => c.UserId == userId)
+                .ToDictionaryAsync(c => c.CourseId, c => c.CertificateId);
 
             return View(enrollments);
         }

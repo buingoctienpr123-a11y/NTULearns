@@ -10,3 +10,5 @@ obj/
 # User settings
 *.user
 *.suo
+# Tài liệu bài học tải lên (lưu ngoài wwwroot)
+App_Data/

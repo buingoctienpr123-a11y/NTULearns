@@ -1,0 +1,93 @@
+@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Transaction
+
+@using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models
+
+@{
+    ViewData["Title"] = "Thanh toán";
+}
+
+<div class="container mt-4 mb-5">
+
+    <h2 class="mb-4">Thanh toán giả lập</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <table class="table table-bordered align-middle">
+                        <tbody>
+                            <tr>
+                                <th style="width: 40%;">Mã giao dịch</th>
+                                <td><code>@Model.TransactionCode</code></td>
+                            </tr>
+                            <tr>
+                                <th>Khóa học</th>
+                                <td>@Model.Course?.Title</td>
+                            </tr>
+                            <tr>
+                                <th>Số tiền</th>
+                                <td class="text-danger fw-bold">
+                                    @Model.Amount.ToString("N0") VNĐ
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Phương thức</th>
+                                <td>@PaymentMethods.DisplayName(Model.PaymentMethod)</td>
+                            </tr>
+                            <tr>
+                                <th>Trạng thái</th>
+                                <td><partial name="_StatusBadge" model="Model.Status" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    @if (Model.PaymentMethod == PaymentMethods.BankTransfer)
+                    {
+                        <div class="alert alert-secondary">
+                            <div><strong>Ngân hàng:</strong> NTU Bank (giả lập)</div>
+                            <div><strong>Số tài khoản:</strong> 0123 456 789</div>
+                            <div><strong>Chủ tài khoản:</strong> NTU LEARN</div>
+                            <div><strong>Nội dung chuyển khoản:</strong> <code>@Model.TransactionCode</code></div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-secondary">
+                            <div><strong>Ví điện tử:</strong> NTU Pay (giả lập)</div>
+                            <div><strong>Số điện thoại nhận:</strong> 0900 000 000</div>
+                            <div><strong>Lời nhắn:</strong> <code>@Model.TransactionCode</code></div>
+                        </div>
+                    }
+
+                    <p class="text-muted small">
+                        Bấm "Xác nhận đã thanh toán" để giả lập giao dịch thành công,
+                        hoặc "Hủy giao dịch" để giả lập giao dịch thất bại.
+                    </p>
+
+                    <div class="d-flex gap-2">
+                        <form asp-action="Confirm" method="post" class="flex-fill">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="code" value="@Model.TransactionCode" />
+                            <button type="submit" class="btn btn-success w-100">
+                                Xác nhận đã thanh toán
+                            </button>
+                        </form>
+
+                        <form asp-action="Cancel" method="post" class="flex-fill">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="code" value="@Model.TransactionCode" />
+                            <button type="submit" class="btn btn-outline-danger w-100">
+                                Hủy giao dịch
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

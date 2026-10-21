@@ -71,6 +71,10 @@
 
         <br />
 
+        @* ViewData["CanManage"] do controller gán quyết định
+           hiển thị form tải lên / nút xóa *@
+        <partial name="_LessonAttachments" model="Model" />
+
         <a asp-action="Index"
            asp-route-courseId="@Model.CourseId"
            class="btn btn-secondary">

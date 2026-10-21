@@ -1,0 +1,91 @@
+@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Certificate?
+
+@{
+    ViewData["Title"] = "Xác minh chứng chỉ";
+
+    var code = ViewBag.Code as string;
+}
+
+<div class="container mt-4 mb-5">
+
+    <h2 class="mb-2">Xác minh chứng chỉ</h2>
+
+    <p class="text-muted">
+        Nhập mã chứng chỉ để kiểm tra chứng chỉ do NTU Learn cấp.
+    </p>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+
+            <form asp-action="Verify"
+                  method="get"
+                  class="row g-2">
+
+                <div class="col-md-9">
+                    <input type="text"
+                           name="code"
+                           value="@code"
+                           class="form-control"
+                           placeholder="Ví dụ: NTU-2026-ABCD2345"
+                           maxlength="30"
+                           required />
+                </div>
+
+                <div class="col-md-3">
+                    <button type="submit"
+                            class="btn btn-primary w-100">
+                        Xác minh
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(code))
+    {
+        @if (Model == null)
+        {
+            <div class="alert alert-danger">
+                Không tìm thấy chứng chỉ với mã <strong>@code</strong>.
+                Chứng chỉ không hợp lệ.
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-success">
+                ✔ Chứng chỉ hợp lệ, được cấp bởi NTU Learn.
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <table class="table table-bordered align-middle mb-0">
+                        <tbody>
+                            <tr>
+                                <th style="width: 35%;">Mã chứng chỉ</th>
+                                <td><code>@Model.CertificateCode</code></td>
+                            </tr>
+                            <tr>
+                                <th>Học viên</th>
+                                <td>@Model.User?.FullName</td>
+                            </tr>
+                            <tr>
+                                <th>Khóa học</th>
+                                <td>@Model.Course?.Title</td>
+                            </tr>
+                            <tr>
+                                <th>Giảng viên</th>
+                                <td>@(Model.Course?.Instructor?.FullName ?? "Chưa cập nhật")</td>
+                            </tr>
+                            <tr>
+                                <th>Ngày cấp</th>
+                                <td>@Model.IssuedAt.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    }
+
+</div>

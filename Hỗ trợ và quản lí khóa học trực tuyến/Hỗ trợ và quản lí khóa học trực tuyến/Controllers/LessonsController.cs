@@ -4,16 +4,21 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data;
 using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models;
+using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Services;
 
 namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
 {
     public class LessonsController : Controller
     {
         private readonly NTULearnContext _context;
+        private readonly LessonFileStorage _storage;
 
-        public LessonsController(NTULearnContext context)
+        public LessonsController(
+            NTULearnContext context,
+            LessonFileStorage storage)
         {
             _context = context;
+            _storage = storage;
         }
 
         // =========================
@@ -32,6 +37,7 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
             }
 
             var lessons = await _context.Lessons
+                .Include(l => l.Attachments)
                 .Where(l => l.CourseId == courseId)
                 .OrderBy(l => l.OrderIndex)
                 .ToListAsync();
@@ -56,12 +62,18 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
 
             var lesson = await _context.Lessons
                 .Include(l => l.Course)
+                .Include(l => l.Attachments)
                 .FirstOrDefaultAsync(l => l.LessonId == id);
 
             if (lesson == null)
             {
                 return NotFound();
             }
+
+            ViewBag.CanManage = lesson.Course != null &&
+                User.Identity?.IsAuthenticated == true &&
+                (User.IsInRole("Admin") || User.IsInRole("GiangVien")) &&
+                CanManageCourse(lesson.Course);
 
             return View(lesson);
         }
@@ -256,6 +268,7 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
         {
             var lesson = await _context.Lessons
                 .Include(l => l.Course)
+                .Include(l => l.Attachments)
                 .FirstOrDefaultAsync(l => l.LessonId == id);
 
             if (lesson == null)
@@ -270,9 +283,20 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
 
             int courseId = lesson.CourseId;
 
+            var storedFiles = lesson.Attachments
+                .Select(a => a.StoredFileName)
+                .ToList();
+
             _context.Lessons.Remove(lesson);
 
             await _context.SaveChangesAsync();
+
+            // Tài liệu trong DB bị xóa theo (Cascade),
+            // xóa luôn file vật lý.
+            foreach (var storedFile in storedFiles)
+            {
+                _storage.Delete(storedFile);
+            }
 
             return RedirectToAction(
                 nameof(Index),
