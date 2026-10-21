@@ -32,7 +32,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
             var course = await _context.Courses
                 .FirstOrDefaultAsync(c => c.CourseId == courseId);
 
-            if (course == null)
+            // Chỉ được đăng ký khóa học đã được Admin duyệt
+            if (course == null || course.Status != "Published")
                 return NotFound();
 
             // Chỉ cho đăng ký khóa học miễn phí.

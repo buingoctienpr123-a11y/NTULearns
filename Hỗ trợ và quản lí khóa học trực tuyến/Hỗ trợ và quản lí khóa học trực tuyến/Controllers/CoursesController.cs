@@ -18,7 +18,21 @@ public class CoursesController : Controller
     [AllowAnonymous]
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Courses.ToListAsync());
+        // Admin xem tất cả; Giảng viên xem khóa đã công khai + khóa của mình;
+        // khách và Học viên chỉ xem khóa đã được duyệt (Published).
+        var courses = _context.Courses.AsQueryable();
+
+        if (!User.IsInRole("Admin"))
+        {
+            bool isInstructor = User.IsInRole("GiangVien");
+            int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int userId);
+
+            courses = courses.Where(c =>
+                c.Status == "Published" ||
+                (isInstructor && c.InstructorId == userId));
+        }
+
+        return View(await courses.ToListAsync());
     }
 
     // GET: COURSES/Details/5
@@ -34,6 +48,10 @@ public class CoursesController : Controller
             .FirstOrDefaultAsync(c => c.CourseId == id);
 
         if (course == null)
+            return NotFound();
+
+        // Khóa chưa duyệt chỉ Admin và giảng viên của khóa được xem
+        if (course.Status != "Published" && !CanManageCourse(course))
             return NotFound();
 
         return View(course);
@@ -66,6 +84,10 @@ public class CoursesController : Controller
                 return Forbid();
 
             course.InstructorId = instructorId;
+
+            // Khóa học do Giảng viên tạo luôn phải chờ Admin duyệt
+            course.Status = "Pending";
+            ModelState.Remove(nameof(Course.Status));
         }
 
         course.CreatedAt = DateTime.Now;
@@ -123,6 +145,12 @@ public class CoursesController : Controller
             return Forbid();
         }
 
+        // Giảng viên không được tự đổi trạng thái duyệt
+        if (!User.IsInRole("Admin"))
+        {
+            ModelState.Remove(nameof(Course.Status));
+        }
+
         if (!ModelState.IsValid)
         {
             return View(course);
@@ -133,7 +161,17 @@ public class CoursesController : Controller
         existingCourse.Price = course.Price;
         existingCourse.ThumbnailUrl = course.ThumbnailUrl;
         existingCourse.CategoryId = course.CategoryId;
-        existingCourse.Status = course.Status;
+
+        if (User.IsInRole("Admin"))
+        {
+            existingCourse.Status = course.Status;
+        }
+        else if (existingCourse.Status == "Rejected")
+        {
+            // Giảng viên sửa khóa bị từ chối => gửi duyệt lại
+            existingCourse.Status = "Pending";
+            existingCourse.RejectionReason = null;
+        }
 
         await _context.SaveChangesAsync();
 

@@ -96,6 +96,10 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("RejectionReason")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -388,6 +392,13 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+
+                    b.Property<string>("ApprovalStatus")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasDefaultValue("Approved");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");

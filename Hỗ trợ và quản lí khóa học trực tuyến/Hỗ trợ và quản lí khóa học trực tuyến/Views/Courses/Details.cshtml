@@ -64,8 +64,31 @@
 
             <p>
                 <strong>Trạng thái:</strong>
-                @Model.Status
+                @if (Model.Status == "Published")
+                {
+                    <span class="badge bg-success">Công khai</span>
+                }
+                else if (Model.Status == "Pending")
+                {
+                    <span class="badge bg-warning text-dark">Chờ duyệt</span>
+                }
+                else if (Model.Status == "Rejected")
+                {
+                    <span class="badge bg-danger">Bị từ chối</span>
+                }
+                else
+                {
+                    @Model.Status
+                }
             </p>
+
+            @if (Model.Status == "Rejected" && !string.IsNullOrEmpty(Model.RejectionReason))
+            {
+                <div class="alert alert-danger">
+                    <strong>Lý do từ chối:</strong> @Model.RejectionReason
+                    <div class="small mt-1">Sửa lại khóa học để gửi duyệt lại.</div>
+                </div>
+            }
 
             <hr />
 

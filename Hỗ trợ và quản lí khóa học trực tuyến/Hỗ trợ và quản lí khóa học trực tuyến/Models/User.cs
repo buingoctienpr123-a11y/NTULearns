@@ -30,6 +30,12 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models
 
         public bool IsActive { get; set; } = true;
 
+        // Trạng thái duyệt tài khoản: Pending (chờ duyệt), Approved, Rejected.
+        // Giảng viên tự đăng ký sẽ ở trạng thái Pending cho đến khi Admin duyệt.
+        [Required]
+        [StringLength(20)]
+        public string ApprovalStatus { get; set; } = "Approved";
+
         public ICollection<Enrollment> Enrollments { get; set; }
             = new List<Enrollment>();
 
