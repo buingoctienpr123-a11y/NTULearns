@@ -427,6 +427,57 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.ToTable("StudentAnswers");
                 });
 
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Transaction", b =>
+                {
+                    b.Property<int>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionId"));
+
+                    b.Property<decimal>("Amount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("PaidAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("TransactionCode")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TransactionId");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("TransactionCode")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Transactions");
+                });
+
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -633,6 +684,25 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.Navigation("QuizAttempt");
                 });
 
+            modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Transaction", b =>
+                {
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course", "Course")
+                        .WithMany("Transactions")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.User", "User")
+                        .WithMany("Transactions")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.User", b =>
                 {
                     b.HasOne("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Role", "Role")
@@ -661,6 +731,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.Navigation("Lessons");
 
                     b.Navigation("Quizzes");
+
+                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Enrollment", b =>
@@ -706,6 +778,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Migrations
                     b.Navigation("Enrollments");
 
                     b.Navigation("InstructorCourses");
+
+                    b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
         }

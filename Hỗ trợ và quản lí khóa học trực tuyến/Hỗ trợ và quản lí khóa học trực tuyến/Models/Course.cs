@@ -46,5 +46,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models
 
         public ICollection<Quiz> Quizzes { get; set; }
             = new List<Quiz>();
+
+        public ICollection<Transaction> Transactions { get; set; }
+            = new List<Transaction>();
     }
 }

@@ -102,6 +102,13 @@
                                     Khóa học của tôi
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link @(currentController == "Transactions" ? "active" : "")"
+                                   asp-controller="Transactions"
+                                   asp-action="History">
+                                    Lịch sử giao dịch
+                                </a>
+                            </li>
                         }
 
                         @if (isAdmin || isInstructor)
@@ -129,6 +136,13 @@
                                    asp-controller="Approvals"
                                    asp-action="Instructors">
                                     Phê duyệt
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @(currentController == "Transactions" ? "active" : "")"
+                                   asp-controller="Transactions"
+                                   asp-action="Index">
+                                    Giao dịch
                                 </a>
                             </li>
                         }
@@ -185,6 +199,13 @@
                                                asp-controller="Enrollments"
                                                asp-action="MyCourses">
                                                 Khóa học của tôi
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item"
+                                               asp-controller="Transactions"
+                                               asp-action="History">
+                                                Lịch sử giao dịch
                                             </a>
                                         </li>
                                     }

@@ -1,0 +1,110 @@
+@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.CheckoutViewModel
+
+@{
+    ViewData["Title"] = "Mua khóa học";
+}
+
+<div class="container mt-4 mb-5">
+
+    <h2 class="mb-4">Xác nhận mua khóa học</h2>
+
+    <div class="row g-4">
+
+        <div class="col-lg-7">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+
+                    <h5>Thông tin khóa học</h5>
+
+                    <hr />
+
+                    <p>
+                        <strong>Tên khóa học:</strong>
+                        @Model.CourseTitle
+                    </p>
+
+                    @if (!string.IsNullOrWhiteSpace(Model.CourseDescription))
+                    {
+                        <p>
+                            <strong>Mô tả:</strong>
+                            @Model.CourseDescription
+                        </p>
+                    }
+
+                    <p>
+                        <strong>Giảng viên:</strong>
+                        @Model.InstructorName
+                    </p>
+
+                    <p class="mb-0">
+                        <strong>Giá khóa học:</strong>
+                        <span class="text-danger fw-bold fs-5">
+                            @Model.Price.ToString("N0") VNĐ
+                        </span>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+
+                    <h5>Phương thức thanh toán</h5>
+
+                    <hr />
+
+                    <form asp-action="Checkout" method="post">
+
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden"
+                               name="courseId"
+                               value="@Model.CourseId" />
+
+                        <div asp-validation-summary="All"
+                             class="text-danger mb-2"></div>
+
+                        @foreach (var method in Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.PaymentMethods.All)
+                        {
+                            <div class="form-check mb-2">
+                                <input class="form-check-input"
+                                       type="radio"
+                                       name="paymentMethod"
+                                       id="method-@method.Key"
+                                       value="@method.Key"
+                                       checked="@(Model.PaymentMethod == method.Key)" />
+
+                                <label class="form-check-label"
+                                       for="method-@method.Key">
+                                    @method.Value
+                                </label>
+                            </div>
+                        }
+
+                        <div class="alert alert-info small mt-3">
+                            Đây là thanh toán <strong>giả lập</strong> phục vụ demo,
+                            hệ thống không kết nối cổng thanh toán thật.
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-success w-100">
+                            Tiếp tục thanh toán
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <a asp-controller="Courses"
+       asp-action="Details"
+       asp-route-id="@Model.CourseId"
+       class="btn btn-outline-secondary mt-4">
+        Quay lại khóa học
+    </a>
+
+</div>

@@ -1,0 +1,133 @@
+@model Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels.TransactionListViewModel
+
+@using Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models
+
+@{
+    ViewData["Title"] = "Quản lý giao dịch";
+
+    var filters = new (string? Value, string Label)[]
+    {
+        (null, "Tất cả"),
+        ("Success", "Thành công"),
+        ("Pending", "Chờ thanh toán"),
+        ("Failed", "Thất bại")
+    };
+}
+
+<div class="container mt-4 mb-5">
+
+    <h2 class="mb-2">Quản lý giao dịch</h2>
+
+    <p class="text-muted">
+        Danh sách giao dịch mua khóa học (thanh toán giả lập)
+    </p>
+
+    <div class="row g-3 mb-4">
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-success">
+                <div class="card-body">
+                    <h6>Tổng doanh thu</h6>
+                    <h3 class="text-success">@Model.TotalRevenue.ToString("N0") VNĐ</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Thành công</h6>
+                    <h3>@Model.SuccessCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Chờ thanh toán</h6>
+                    <h3>@Model.PendingCount</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Thất bại</h6>
+                    <h3>@Model.FailedCount</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <ul class="nav nav-pills mb-3">
+        @foreach (var filter in filters)
+        {
+            <li class="nav-item">
+                <a class="nav-link @(Model.Status == filter.Value ? "active" : "")"
+                   asp-action="Index"
+                   asp-route-status="@filter.Value">
+                    @filter.Label
+                </a>
+            </li>
+        }
+    </ul>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mã giao dịch</th>
+                            <th>Học viên</th>
+                            <th>Khóa học</th>
+                            <th>Số tiền</th>
+                            <th>Phương thức</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày tạo</th>
+                            <th>Ngày thanh toán</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (!Model.Transactions.Any())
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center text-muted">
+                                    Không có giao dịch nào.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var item in Model.Transactions)
+                            {
+                                <tr>
+                                    <td><code>@item.TransactionCode</code></td>
+                                    <td>
+                                        @item.User?.FullName
+                                        <div class="text-muted small">@item.User?.Email</div>
+                                    </td>
+                                    <td>@item.Course?.Title</td>
+                                    <td>@item.Amount.ToString("N0") VNĐ</td>
+                                    <td>@PaymentMethods.DisplayName(item.PaymentMethod)</td>
+                                    <td><partial name="_StatusBadge" model="item.Status" /></td>
+                                    <td>@item.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td>@(item.PaidAt?.ToString("dd/MM/yyyy HH:mm") ?? "-")</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>

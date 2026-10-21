@@ -1,0 +1,18 @@
+@model string
+
+@if (Model == "Success")
+{
+    <span class="badge bg-success">Thành công</span>
+}
+else if (Model == "Pending")
+{
+    <span class="badge bg-warning text-dark">Chờ thanh toán</span>
+}
+else if (Model == "Failed")
+{
+    <span class="badge bg-danger">Thất bại</span>
+}
+else
+{
+    <span class="badge bg-secondary">@Model</span>
+}

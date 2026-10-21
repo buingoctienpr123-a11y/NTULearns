@@ -8,20 +8,6 @@
 
     <h2 class="mb-4">@Model.Title</h2>
 
-    @if (TempData["Error"] != null)
-    {
-        <div class="alert alert-warning">
-            @TempData["Error"]
-        </div>
-    }
-
-    @if (TempData["Success"] != null)
-    {
-        <div class="alert alert-success">
-            @TempData["Success"]
-        </div>
-    }
-
     <div class="card shadow-sm">
 
         <div class="card-body">
@@ -114,10 +100,12 @@
                 }
                 else
                 {
-                    <button class="btn btn-secondary"
-                            disabled>
-                        Chưa hỗ trợ thanh toán
-                    </button>
+                    <a asp-controller="Transactions"
+                       asp-action="Checkout"
+                       asp-route-courseId="@Model.CourseId"
+                       class="btn btn-success">
+                        Mua khóa học (@Model.Price.ToString("N0") VNĐ)
+                    </a>
                 }
             }
 

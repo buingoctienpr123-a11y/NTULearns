@@ -25,6 +25,11 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.ViewModels
 
         public int FailedQuizAttempts { get; set; }
 
+        // Tổng tiền các giao dịch thành công
+        public decimal TotalRevenue { get; set; }
+
+        public int SuccessfulTransactions { get; set; }
+
         public List<TopCourseItem> TopCourses { get; set; } = new();
 
         public List<RecentEnrollmentItem> RecentEnrollments { get; set; } = new();

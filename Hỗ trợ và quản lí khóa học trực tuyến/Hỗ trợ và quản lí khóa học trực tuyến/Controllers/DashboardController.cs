@@ -119,6 +119,19 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Controllers
             model.FailedQuizAttempts =
                 model.TotalQuizAttempts - model.PassedQuizAttempts;
 
+            // Doanh thu từ các giao dịch mua khóa học thành công
+            var successTransactions = _context.Transactions
+                .AsNoTracking()
+                .Where(t =>
+                    t.Status == "Success" &&
+                    courseIds.Contains(t.CourseId));
+
+            model.TotalRevenue = await successTransactions
+                .SumAsync(t => (decimal?)t.Amount) ?? 0;
+
+            model.SuccessfulTransactions =
+                await successTransactions.CountAsync();
+
             model.TopCourses = await courses
                 .Select(c => new TopCourseItem
                 {

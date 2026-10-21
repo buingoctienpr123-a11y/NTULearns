@@ -37,6 +37,8 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data
 
         public DbSet<LessonAttachment> LessonAttachments { get; set; }
 
+        public DbSet<Transaction> Transactions { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -206,6 +208,27 @@ namespace Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Data
 
             modelBuilder.Entity<LessonAttachment>()
                 .HasIndex(a => a.StoredFileName)
+                .IsUnique();
+
+            // Giao dịch mua khóa học
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.User)
+                .WithMany(u => u.Transactions)
+                .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.Course)
+                .WithMany(c => c.Transactions)
+                .HasForeignKey(t => t.CourseId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Transaction>()
+                .Property(t => t.Amount)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Transaction>()
+                .HasIndex(t => t.TransactionCode)
                 .IsUnique();
 
         }
