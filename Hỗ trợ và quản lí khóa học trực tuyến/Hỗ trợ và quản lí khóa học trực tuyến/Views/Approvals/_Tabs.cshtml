@@ -1,0 +1,21 @@
+@{
+    var currentAction =
+        ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<ul class="nav nav-tabs mb-4">
+    <li class="nav-item">
+        <a class="nav-link @(currentAction == "Instructors" ? "active" : "")"
+           asp-controller="Approvals"
+           asp-action="Instructors">
+            Giảng viên chờ duyệt
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link @(currentAction == "Courses" ? "active" : "")"
+           asp-controller="Approvals"
+           asp-action="Courses">
+            Khóa học chờ duyệt
+        </a>
+    </li>
+</ul>

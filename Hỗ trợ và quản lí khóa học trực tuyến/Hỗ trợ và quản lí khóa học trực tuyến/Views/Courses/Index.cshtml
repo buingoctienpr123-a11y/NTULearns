@@ -31,6 +31,15 @@
                             @item.Title
                         </h5>
 
+                        @if (item.Status == "Pending")
+                        {
+                            <span class="badge bg-warning text-dark mb-2">Chờ duyệt</span>
+                        }
+                        else if (item.Status == "Rejected")
+                        {
+                            <span class="badge bg-danger mb-2">Bị từ chối</span>
+                        }
+
                         <p class="card-text">
                             @item.Description
                         </p>

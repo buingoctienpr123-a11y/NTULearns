@@ -1,0 +1,152 @@
+@model List<Hỗ_trợ_và_quản_lí_khóa_học_trực_tuyến.Models.Course>
+
+@{
+    ViewData["Title"] = "Duyệt khóa học";
+}
+
+<div class="container mt-4 mb-5">
+
+    <h2 class="mb-2">Phê duyệt</h2>
+
+    <p class="text-muted">
+        Duyệt khóa học do giảng viên gửi lên trước khi công khai
+    </p>
+
+    <partial name="_Tabs" />
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <h5 class="mb-3">
+                Khóa học chờ duyệt
+                <span class="badge bg-primary">
+                    @Model.Count
+                </span>
+            </h5>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Mã</th>
+                            <th>Khóa học</th>
+                            <th>Danh mục</th>
+                            <th>Giảng viên</th>
+                            <th>Giá</th>
+                            <th>Ngày tạo</th>
+                            <th style="min-width: 260px;">Thao tác</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="7"
+                                    class="text-center text-muted">
+                                    Không có khóa học nào đang chờ duyệt.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var course in Model)
+                            {
+                                <tr>
+                                    <td>@course.CourseId</td>
+
+                                    <td>
+                                        <a asp-controller="Courses"
+                                           asp-action="Details"
+                                           asp-route-id="@course.CourseId">
+                                            <strong>@course.Title</strong>
+                                        </a>
+
+                                        @if (!string.IsNullOrEmpty(course.Description))
+                                        {
+                                            <div class="text-muted small">
+                                                @course.Description
+                                            </div>
+                                        }
+                                    </td>
+
+                                    <td>@course.Category?.CategoryName</td>
+
+                                    <td>
+                                        @course.Instructor?.FullName
+
+                                        <div class="text-muted small">
+                                            @course.Instructor?.Email
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        @if (course.Price == 0)
+                                        {
+                                            <span class="text-success">Miễn phí</span>
+                                        }
+                                        else
+                                        {
+                                            @course.Price.ToString("N0")
+                                            <span>VNĐ</span>
+                                        }
+                                    </td>
+
+                                    <td>@course.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+
+                                    <td>
+                                        <form asp-controller="Approvals"
+                                              asp-action="ReviewCourse"
+                                              method="post"
+                                              class="mb-2">
+
+                                            <input type="hidden" name="id" value="@course.CourseId" />
+                                            <input type="hidden" name="approve" value="true" />
+
+                                            <button type="submit"
+                                                    class="btn btn-sm btn-success">
+                                                Duyệt
+                                            </button>
+                                        </form>
+
+                                        <form asp-controller="Approvals"
+                                              asp-action="ReviewCourse"
+                                              method="post">
+
+                                            <input type="hidden" name="id" value="@course.CourseId" />
+                                            <input type="hidden" name="approve" value="false" />
+
+                                            <div class="input-group input-group-sm">
+                                                <input type="text"
+                                                       name="reason"
+                                                       class="form-control"
+                                                       placeholder="Lý do từ chối"
+                                                       maxlength="255"
+                                                       required />
+
+                                                <button type="submit"
+                                                        class="btn btn-outline-danger">
+                                                    Từ chối
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
